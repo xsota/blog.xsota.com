@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "wmvの動画をMP4に変換してmacのiMovieで編集する方法"
-date:   2012-09-00 00:00:00 +0900
+date:   2012-09-12 00:00:00 +0900
 permalink: /:year/:month/:title.html
 categories: 日記じゃない
 tags:
