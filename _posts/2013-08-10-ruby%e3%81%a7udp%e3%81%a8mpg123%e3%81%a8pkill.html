@@ -38,5 +38,5 @@ author:
 <p>なんか送信しているほうのプログラム<br /><code></code></p>
 <pre><code>#!/usr/bin/ruby<br /><br />require "socket"<br /><br />udp = UDPSocket.open()<br /><br />sockaddress = Socket.pack_sockaddr_in(1230, "127.0.0.1")<br /><br />udp.send("HEY!!", 0, sockaddress)<br /><br />udp.close<br /><br /><br /></code></pre>
 <p>結果はこんな感じだけど音楽の一時停止とかは画像じゃ伝わらないか。要望があったら動画にでもしよう。</p>
-<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/08/Screenshot_from_2013-08-10-21-08-26.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/Screenshot_from_2013-08-10-21-08-26.png" /></a></div>
+<div style="clear: both; text-align: center;"><a href="{{ site.baseurl }}/assets/Screenshot_from_2013-08-10-21-08-26.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/Screenshot_from_2013-08-10-21-08-26.png" /></a></div>
 <p>アーティスト名とか文字化けしてるけど、<a href="http://amachamusic.chagasi.com/">甘茶の音楽工房さん</a>のアポロって曲でテストしたよ。</p>

@@ -51,7 +51,7 @@ author:
 <p></p>
 <h1>0.アンドロイドアプリケーションの新規作成</h1>
 <p></p>
-<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/07/janken_icon1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/janken_icon1.png" /></a></div>
+<div style="clear: both; text-align: center;"><a href="{{ site.baseurl }}/assets/janken_icon1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/janken_icon1.png" /></a></div>
 <p>File &gt;New &gt;Android Application Project を選択</p>
 <p>パッケージ名やアプリケーション名,アイコン画像は任意でいいです。<br />あとはデフォルトのままで問題ないと思います。</p>
 <h1>1.イメージボタンを設定する</h1>
@@ -60,7 +60,7 @@ author:
 <p>デフォルトで生成されているhello worldのテキストビューを削除します。</p>
 <p>そしてPaletteの中からImage Buttonを選択しててきとうに配置します。<br />これはじゃんけんの手を選択するボタンなのでグーチョキパーの画像を設定しておきます。<br />じゃんけんの結果を表示するためののテキストビューを作成します。<br />自分の出した手と相手の手を表示するイメージビューを作成します。</p>
 <p>私はこんな感じにしました。</p>
-<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/07/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-07-03-23.48.23.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-07-03-23.48.23.png" /></a></div>
+<div style="clear: both; text-align: center;"><a href="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-07-03-23.48.23.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-07-03-23.48.23.png" /></a></div>
 <p>それぞれのidは以下のようになっています。<br />ぐーのimage buttonのid:gu<br />ちょき:choki<br />ぱー:per<br />結果表示用text viewのid:result<br />自分手の表示するimage viewのid:me<br />相手の手を表示するimage view:enemy</p>
 <p></p>
 <h1>2.押されたボタンに対応する手を表示</h1>
@@ -80,6 +80,6 @@ author:
 <p>となります。</p>
 <p><code></code></p>
 <pre><code>import java.util.Random;<br /><br />import android.os.Bundle;<br />import android.app.Activity;<br />import android.view.View;<br />import android.view.View.OnClickListener;<br />import android.widget.ImageButton;<br />import android.widget.ImageView;<br /><span style="color: red;">import android.widget.TextView;</span><br /><br /><br />public class MainActivity extends Activity implements OnClickListener{<br /> ImageButton gu,choki,per; <br /> int hands[] = new int[3];<br /> ImageView me,enemy; <br /> <span style="color: red;">TextView result;</span><br /> @Override<br /> protected void onCreate(Bundle savedInstanceState) {<br />  super.onCreate(savedInstanceState);<br />  setContentView(R.layout.activity_main);<br />  hands[0] = R.drawable.gu;<br />  hands[1] = R.drawable.choki;<br />  hands[2] = R.drawable.per;  <br />  me = (ImageView) findViewById(R.id.me);<br />  enemy =(ImageView) findViewById(R.id.enemy);<br />  gu = (ImageButton) findViewById(R.id.gu);<br />  choki = (ImageButton) findViewById(R.id.choki);<br />  per = (ImageButton) findViewById(R.id.per);<br />  <span style="background-color: white; color: red;">result = (TextView) findViewById(R.id.result);</span><br />  gu.setOnClickListener(this);<br />  choki.setOnClickListener(this);<br />  per.setOnClickListener(this);  <br /> }<br /><br /><br /> @Override<br /> public void onClick(View v) {  <br />  Random random = new Random();<br />  int n = random.nextInt(3);<br />  int hand=0;<br />  //0:gu 1:choki 2:per<br />  if (v == gu ){<br />   hand = 0;<br />  }else if (v == choki ){<br />   hand = 1;<br />  }else if (v == per ){<br />   hand = 2;<br />  }<br />  me.setImageResource(hands[hand]);<br />  enemy.setImageResource(hands[n]);<br />  <span style="color: red;">int syouhai = (hand - n) + 3;<br />  <br />  if (syouhai%3 == 0){<br />   result.setText("あいこ");   <br />  }else if(syouhai%3 == 1){<br />   result.setText("あんたの負けだ");<br />  }else if(syouhai%3 == 2){<br />   result.setText("あんたの勝ちだ");<br />  }</span><br />  }<br />}</code></pre>
-<p>これで完成！<br /><a href="https://blog.xsota.com/wp-content/uploads/2013/07/device-2013-06-28-002813.png"><img border="0" src="{{ site.baseurl }}/assets/device-2013-06-28-002813.png" /></a></p>
+<p>これで完成！<br /><a href="{{ site.baseurl }}/assets/device-2013-06-28-002813.png"><img border="0" src="{{ site.baseurl }}/assets/device-2013-06-28-002813.png" /></a></p>
 <p>追記(2013/09/21)<br /><a href="https://play.google.com/store/apps/details?id=com.emilyanne.janken2" target="_blank">ここ</a>にこの記事を参考にアプリを作ってくれた方が居ました。</p>
 <p>追記(2013/12/29)<br />またこの記事を参考にアプリをつくってくれた方が居ました。超嬉しい。<br /><a href="https://play.google.com/store/apps/details?id=com.takanomeblog.janken" target="_blank">https://play.google.com/store/apps/details?id=com.takanomeblog.janken</a></p>

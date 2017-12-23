@@ -34,19 +34,19 @@ author:
 <h2>1.JDK</h2>
 <p>ここから<br /><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html</a><br />自分の環境に合ったJDKをdownload<br />今回はVine Linux 6.1の入った32bitマシンにインストールするので<br />” jdk-7u21-linux-i586.rpm”を選択します。</p>
 <p>ダウンロードが終わったら端末上で<br /><i>&nbsp;% sudo rpm --install jdk-7u21-linux-i586.rpm</i><br />を実行します。</p>
-<p><a href="https://blog.xsota.com/wp-content/uploads/2013/05/1.png"><img border="0" height="235" src="{{ site.baseurl }}/assets/1.png" width="400" /></a><br />画像の用に表示されたら次に進む。<br /><a href="https://blog.xsota.com/wp-content/uploads/2013/05/1.png"></a><a href="http://2.bp.blogspot.com/-J9__zu-Z1UE/UZRm1jFWnbI/AAAAAAAAAUM/jzJXsXaDCCM/s1600/2.png"></a><a href="https://blog.xsota.com/wp-content/uploads/2013/05/3.png"></a></p>
+<p><a href="{{ site.baseurl }}/assets/1.png"><img border="0" height="235" src="{{ site.baseurl }}/assets/1.png" width="400" /></a><br />画像の用に表示されたら次に進む。<br /><a href="{{ site.baseurl }}/assets/1.png"></a><a href="http://2.bp.blogspot.com/-J9__zu-Z1UE/UZRm1jFWnbI/AAAAAAAAAUM/jzJXsXaDCCM/s1600/2.png"></a><a href="{{ site.baseurl }}/assets/3.png"></a></p>
 <h2>2.Eclipse&amp;Android SDK</h2>
 <p><a href="http://developer.android.com/sdk/index.html" target="_blank">http://developer.android.com/sdk/index.html</a><br />から自分の環境にあったADT bundleをダウンロード。<br />今回は 1と同じくLinux 32-bitをダウンロード。</p>
-<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="233" src="{{ site.baseurl }}/assets/3.png" width="400" /></a>&nbsp;</div>
+<div style="clear: both; text-align: center;"><a href="{{ site.baseurl }}/assets/3.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="233" src="{{ site.baseurl }}/assets/3.png" width="400" /></a>&nbsp;</div>
 <p>$HOMEかどっかに展開します。</p>
 <p>&nbsp;次にeclipseを起動します。</p>
-<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/5.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="233" src="{{ site.baseurl }}/assets/5.png" width="400" /></a></div>
+<div style="clear: both; text-align: center;"><a href="{{ site.baseurl }}/assets/5.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="233" src="{{ site.baseurl }}/assets/5.png" width="400" /></a></div>
 <p>上記画像のようなロゴがでてきたら成功です。</p>
 <p>起動したらWindow &gt; Preferences &gt;Androidを開き、SDK Location というところを確認してください。SDKの場所が指定されていれば次に進みます。 <br />されていなかった場合は自分でSDKの場所を指定。</p>
 <p>パスを通したら Help &gt; Install New Software を開きWork Withに<br />&nbsp;<a href="http://dl-ssl.google.com/android/eclipse/site.xml" target="_blank">http://dl-ssl.google.com/<wbr></wbr>android/eclipse/site.xml</a>&nbsp; を追加する </p>
 <p>とりあえずSelect All で全部インストール。</p>
 <p>次にWindow &gt; Android SDK Managerを開きます。<br />画像のようなウィンドウがでてくるので、必要なものをインストールしてください。</p>
-<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/7.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="187" src="{{ site.baseurl }}/assets/7.png" width="320" /></a></div>
+<div style="clear: both; text-align: center;"><a href="{{ site.baseurl }}/assets/7.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="187" src="{{ site.baseurl }}/assets/7.png" width="320" /></a></div>
 <p>以下のエラーがでてきたら。<br />Failed to fetch URL <a data-expanded-url="https://dl-ssl.google.com/android/repository/repository-7.xml" dir="ltr" href="https://t.co/Rd4B4TTVIg" rel="nofollow" target="_blank" title="https://dl-ssl.google.com/android/repository/repository-7.xml"><span>https://</span><span>dl-ssl.google.com/android/reposi</span><span>tory/repository-7.xml</span><span><span>&nbsp;</span>…</span></a>, reason: SSLPeerUnverified peer not authenticated</p>
 <p>&nbsp;Window &gt; Android SDK Manager &gt; Tools &gt; Options &gt; Force https://… sources to be fetched using http://… にチェックを入れると怒られなくなるかもしれません。 </p>
 <p></p>

@@ -29,7 +29,7 @@ author:
 <p>こんにちは<a href="https://twitter.com/xsota" target="_blank">xsota</a>です。</p>
 <p>wordpress、よくわからんけど遊んでます。</p>
 <p>今日はwordpressにてカテゴリの最新記事を表示、みたいなことをやってみました。</p>
-<p>↓こういうやつね<br /><a href="https://blog.xsota.com/wp-content/uploads/2014/07/wp.png"><img border="0" src="{{ site.baseurl }}/assets/wp.png" height="247" width="400" /></a><br /><a href="http://wp.xsota.com/wordpress" target="_blank">wp.xsota.com</a></p>
+<p>↓こういうやつね<br /><a href="{{ site.baseurl }}/assets/wp.png"><img border="0" src="{{ site.baseurl }}/assets/wp.png" height="247" width="400" /></a><br /><a href="http://wp.xsota.com/wordpress" target="_blank">wp.xsota.com</a></p>
 <p>めんどくさいから手順だけメモ</p>
 <p>
 <h3>exec-phpをインストール</h3>
@@ -38,10 +38,10 @@ author:
 <p>ダウンロードしてくるか、プラグインの新規追加で「exec-php」で検索してインストールする。</p>
 <p>プラグインを有効化して、特に設定はいじらなかった。</p>
 <h3>ウィジェットにテキストを追加</h3>
-<p><a href="https://blog.xsota.com/wp-content/uploads/2014/07/wpwp.png"><img border="0" src="{{ site.baseurl }}/assets/wpwp.png" /></a></p>
+<p><a href="{{ site.baseurl }}/assets/wpwp.png"><img border="0" src="{{ site.baseurl }}/assets/wpwp.png" /></a></p>
 <p><i><b><code><br /></code></b></i>
 <pre><i><b><code>&lt;?php<br />$posts = get_posts('numberposts=3&amp;category=4');<br />global $post;<br />?&gt;<br />&lt;?php<br />if($posts): foreach($posts as $post): setup_postdata($post); ?&gt;<br />&lt;li&gt;&lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;&lt;/li&gt;<br />&lt;?php endforeach; endif;<br />?&gt;<br /></code></b></i></pre>
 <p>('numberposts=ここに表示したい投稿の件数&amp;category=カテゴリid');</p>
 <p>するとこんな感じになる。</p>
-<p><a href="https://blog.xsota.com/wp-content/uploads/2014/07/wp.png"><img border="0" src="{{ site.baseurl }}/assets/wp.png" height="247" width="400" /></a></p>
+<p><a href="{{ site.baseurl }}/assets/wp.png"><img border="0" src="{{ site.baseurl }}/assets/wp.png" height="247" width="400" /></a></p>
 <p>はじめてphp書いた。よくわからん。</p>
