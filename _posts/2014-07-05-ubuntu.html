@@ -1,0 +1,66 @@
+---
+layout: post
+title: えもふりをUbuntuで動かす手順
+date: 2014-07-05 13:41:00.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+tags:
+- ubuntu
+- wine
+- えもふり
+meta:
+  blogger_blog: konohappa.blogspot.com
+  blogger_author: Sota X
+  blogger_permalink: "/2014/07/ubuntu.html"
+  blogger_internal: "/feeds/2514941205024880232/posts/default/1346693086018323318"
+  _thumbnail_id: '64'
+  _edit_last: '1'
+  _wp_old_slug: "%e3%81%88%e3%82%82%e3%81%b5%e3%82%8a%e3%82%92ubuntu%e3%81%a7%e5%8b%95%e3%81%8b%e3%81%99%e6%89%8b%e9%a0%86"
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p><a href="http://emote2.mtwo.co.jp/emofuri.php">えもふり</a>ってなんだ？</p>
+<blockquote><p>E-mote Free Movie Maker(以下えもふり)は、 絵師さんの「もっと簡単にキャラクターを動かしたい！」 動画制作者さんの「設定なんて面倒なことしたくない！3秒で動かしたい！」 っていう、皆からの強い要望にお応えするために 『E-moteよりも簡単に、楽しく、ぬるぬる動くキャラクターを作る』 ことを目的として開発された、新しい形のE-moteだよ！</p></blockquote>
+<p>by <a href="http://emote2.mtwo.co.jp/emofuri.php">http://emote2.mtwo.co.jp/emofuri.php</a></p>
+<p>自分で描いたキャラクターとかの絵を簡単にアニメーション化することができるらしい。<br />実際のアニメーションを見たい人は<a href="http://emote2.mtwo.co.jp/emofuri.php">http://emote2.mtwo.co.jp/emofuri.php</a>を見てください。<br />もしくはTwitterで「えもふり」とかで検索すると出てくると思います。</p>
+<p>でもえもふりはWindows用のアプリケーションです。悲しい。<br />でもUbuntuでも動きます。やったね。</p>
+<p>それではえもふりをUbuntuで動かす手順です。<br />というかwineで動きます。わかる人は見なくて良いと思います。</p>
+<p>ちなみにUbuntu14.04でやってます。</p>
+<h3>wineのインストール</h3>
+<p><b><i>$ sudo apt-get -y install wine</i></b><br /><a href="https://blog.xsota.com/wp-content/uploads/2014/07/hoge.png"><img border="0" src="{{ site.baseurl }}/assets/hoge.png" /></a></p>
+<h3>えもふりをダウンロード</h3>
+<p><a href="http://emote2.mtwo.co.jp/download.php">http://emote2.mtwo.co.jp/download.php</a></p>
+<h3>インストーラを実行</h3>
+<p>Downloadsディレクトリにダウンロードしたとします。</p>
+<p><i><b>$ cd Downloads</b></i><br /><i><b>$ wine emote_moviemaker_setup_20140703.exe</b></i><br /><a href="https://blog.xsota.com/wp-content/uploads/2014/07/hoge1.png"><img border="0" src="{{ site.baseurl }}/assets/hoge1.png" /></a></p>
+<h3>インストールが今、はじまる</h3>
+<h4>セットアップウィザードへようこそ</h4>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2014/07/hoge2.png"><img border="0" src="{{ site.baseurl }}/assets/hoge2.png" /></a></p>
+<h4>同意したら次へをクリックして進めます。</h4>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2014/07/hoge3.png"><img border="0" src="{{ site.baseurl }}/assets/hoge3.png" /></a></p>
+<p></p>
+<h4>私はデスクトップショートカットはいらないのでチェックを外しました。</h4>
+<p>欲しい人はチェックを外さないようにしましょう。<br /><a href="https://blog.xsota.com/wp-content/uploads/2014/07/hoge4.png"><img border="0" src="{{ site.baseurl }}/assets/hoge4.png" /></a></p>
+<h4>インストール先を選ぶ。いじらなくて良いです。</h4>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2014/07/hoge5.png"><img border="0" src="{{ site.baseurl }}/assets/hoge5.png" /></a></p>
+<p></p>
+<h4>特に問題なくインストールが終了すると思います。</h4>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2014/07/hoge6.png"><img border="0" src="{{ site.baseurl }}/assets/hoge6.png" /></a></p>
+<p></p>
+<h3>えもふりの実行</h3>
+<p>起動してみよう。</p>
+<p><i><b>$ cd                                                   [~/Downloads]</b></i><br /><i><b>$ cd .wine/drive_c/Program Files (x86)                       [~]</b></i><br /><i><b>$ cd m2tools CheeseWare/EmoteMovieMaker </b></i><br /><i><b>$ ./motioneditor.exe </b></i></p>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2014/07/hoge7.png"><img border="0" src="{{ site.baseurl }}/assets/hoge7.png" /></a></p>
+<p>わーい。動いたぞー。</p>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2014/07/hoge8.png"><img border="0" src="{{ site.baseurl }}/assets/hoge8.png" /></a></p>
+<p>れっつえもふり！</p>

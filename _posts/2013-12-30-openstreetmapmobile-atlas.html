@@ -1,0 +1,56 @@
+---
+layout: post
+title: OpenStreetMapのデータをMobile Atlas CreatorでダウンロードしてOsmdroidにて利用した際の手順+α
+date: 2013-12-30 18:30:00.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+tags:
+- Mobile Atlas Creator
+- OpenStreetMap
+- osmdroid
+meta:
+  blogger_blog: konohappa.blogspot.com
+  blogger_author: Sota X
+  blogger_permalink: "/2013/12/openstreetmapmobile-atlas.html"
+  blogger_internal: "/feeds/2514941205024880232/posts/default/7554880850296572447"
+  _thumbnail_id: '124'
+  _edit_last: '1'
+  _wp_old_slug: openstreetmapmobile-atlas-creator
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>オフライン時に読み込まれる地図データを用意する方法(osmdroidを利用したオフライン用の地図アプリのコードは今度書く)。 </p>
+<p>今回は「<a href="https://play.google.com/store/apps/details?id=com.xsota.bus" target="_blank"><b>山形、バス停ハンター！</b></a>」に使う地図データを入手する方法の一つを記述する。</p>
+<p>MOBAC(Mobile Atlas Creator) を以下のリンクから入手する。<br /><a href="http://mobac.sourceforge.net/" target="_blank">http://mobac.sourceforge.net/</a></p>
+<p>MOBACを起動する。<br />すると以下の画像のようになる。 </p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/12/sstop.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/sstop.png" height="223" width="400" /></a></div>
+<p>&nbsp;地図データの取得元を「OpenStreetMap Mapnik」に変更。</p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/12/ss1.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/ss1.png" height="225" width="400" /></a></div>
+<p>オフラインでも利用したい範囲を選択する。</p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/12/ss2.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/ss2.png" height="223" width="400" /></a></div>
+<p>ダウンロードしたいズームレベルを選択し、「選択範囲を地図に追加」をクリック。<br />(ズームレベル16が最大まで拡大した図、0が引いた図。<br />以下の画像でズーム値となっているところを変更して実際に確認できる) </p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/12/ss3.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/ss3.png" height="223" width="400" /></a></div>
+<p>地図(アトラス)の構築処理の実行を選択する、地図情報がダウンロードされる 。</p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/12/ss4.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/ss4.png" height="225" width="400" />&nbsp;</a></div>
+<div style="clear: both; text-align: left;"></div>
+<div style="clear: both; text-align: left;"></div>
+<p>ダウンロードが終了するとzipファイルで地図の情報が保存されているので</p>
+<div style="clear: both; text-align: left;">zipのまま、Android端末の/sdcard/osmdroid/に移動する。</div>
+<div style="clear: both; text-align: left;"></div>
+<div style="clear: both; text-align: left;">展開しなくても利用できるが、展開したデータの場合は/sdcard/osmdroid/tiles/に移動する。</div>
+<div style="clear: both; text-align: left;"></div>
+<div style="clear: both; text-align: left;"></div>
+<div style="clear: both; text-align: left;">後はオフラインでアプリを起動するだけ。 </div>
+<div style="clear: both; text-align: left;"></div>
+<div style="clear: both; text-align: left;"></div>
+<div style="clear: both; text-align: left;"></div>

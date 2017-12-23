@@ -1,0 +1,119 @@
+---
+layout: post
+title: Titanium mobile ぼかす
+date: 2015-03-05 12:48:15.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 開発
+tags:
+- blur
+- Titanium Mobile
+- すりガラス
+meta:
+  _edit_last: '1'
+  _aioseop_opengraph_settings: a:12:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";}
+  _layout: inherit
+  _oembed_f77c989d1154583c2d50ea1e10e78408: "{{unknown}}"
+  _oembed_d2ced3dcedaf7378bfdbbceb538f8c8c: "{{unknown}}"
+  _thumbnail_id: '438'
+  _oembed_973ba96a21874ab908f427667552f2f4: "{{unknown}}"
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>すりガラス風にぼかす</p>
+<p><a href="https://github.com/benbahrenburg/Ti.BlurView">https://github.com/benbahrenburg/Ti.BlurView</a> を使う</p>
+<p>Moduleの追加方法</p>
+<p>1.<br />
+Help &gt; Install Mobile Moduleを選択</p>
+<p>URLを入力してからOKを押す。</p>
+<p>2.<br />
+tiapp.xmlを開き、Modulesの項目の"+"ボタンを押し、追加 "1."で追加したModuleを選択。</p>
+<p>Ti.BlurView (bencoding.blur)<br />
+iOS用<br />
+<a href="https://github.com/benbahrenburg/Ti.BlurView/blob/ea2f5b4b0c6fc08cc33760282a46e029caf0bc0e/iOS/dist/bencoding.blur-iphone-0.35.zip?raw=true">https://github.com/benbahrenburg/Ti.BlurView/blob/ea2f5b4b0c6fc08cc33760282a46e029caf0bc0e/iOS/dist/bencoding.blur-iphone-0.35.zip?raw=true</a><br />
+Android用<br />
+<a href="https://github.com/benbahrenburg/Ti.BlurView/blob/ea2f5b4b0c6fc08cc33760282a46e029caf0bc0e/android/dist/bencoding.blur-android-0.1.zip?raw=true">https://github.com/benbahrenburg/Ti.BlurView/blob/ea2f5b4b0c6fc08cc33760282a46e029caf0bc0e/android/dist/bencoding.blur-android-0.1.zip?raw=true</a></p>
+<p>iOSのデモ</p>
+<pre>var mod = require('bencoding.blur');
+
+var win = Ti.UI.createWindow({
+    backgroundColor:'blue'
+});
+
+var bgView = Ti.UI.createView({
+    height:Ti.UI.FILL, width:Ti.UI.FILL,
+    backgroundImage:"default.png"
+});
+win.add(bgView);
+
+var imgView = Ti.UI.createImageView({
+    top:100, left:40, right:40, bottom:100
+});
+bgView.add(imgView);    
+
+win.addEventListener('open',function(d){
+
+    var img = mod.applyBlurTo({
+        view: bgView,
+        blurLevel:5, blurTintColor:"#9EDEB8",
+        cropToRect:{
+            x:imgView.rect.x,
+            y:imgView.rect.y,
+            width:imgView.rect.width,
+            height:imgView.rect.height
+        }
+    });
+    
+    imgView.image = img;
+
+    var container = Ti.UI.createView({
+        backgroundColor:"#fff", borderRadius:20,
+        top:100, height:150, left:40, right:40
+    });
+    imgView.add(container);
+    var label = Ti.UI.createLabel({
+        text:"Show how to blur like the yahoo weather app.", 
+        color:"#000", width:Ti.UI.FILL, height:50, textAlign:"center"
+    }); 
+    container.add(label);   
+});
+
+win.open();
+</pre>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2015/03/iOS-Simulator-Screen-Shot-2015.03.05-12.44.33.png"><img class="alignnone size-large wp-image-438" src="{{ site.baseurl }}/assets/iOS-Simulator-Screen-Shot-2015.03.05-12.44.33-577x1024.png" alt="iOS Simulator Screen Shot 2015.03.05 12.44.33" width="577" height="1024" /></a></p>
+<p>Android</p>
+<pre>var mod = require('bencoding.blur');
+
+var win = Ti.UI.createWindow({
+    backgroundColor:'white', title:"Image Blur Demo"
+});
+
+var imgblurredImage = mod.applyBlurTo({
+    image:'/images/uho.png',
+    blurRadius:20
+});
+
+var vwTest = Ti.UI.createImageView({
+    width:Ti.UI.FILL, height:Ti.UI.FILL,
+    image:imgblurredImage
+});
+
+win.add(vwTest);
+
+win.open();
+
+</pre>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2015/03/device-2015-03-05-124608.png"><img class="alignnone size-large wp-image-439" src="{{ site.baseurl }}/assets/device-2015-03-05-124608-576x1024.png" alt="device-2015-03-05-124608" width="576" height="1024" /></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>参考</p>
+<p><a href="https://github.com/benbahrenburg/Ti.BlurView">https://github.com/benbahrenburg/Ti.BlurView</a></p>

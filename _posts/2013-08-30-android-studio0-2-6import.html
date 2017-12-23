@@ -1,0 +1,40 @@
+---
+layout: post
+title: Android Studioを0.2.6にアップデートしたらimportができなくなった
+date: 2013-08-30 19:10:00.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 開発
+tags:
+- android studio
+- ubuntu
+- 備忘録
+meta:
+  blogger_blog: konohappa.blogspot.com
+  blogger_author: Sota X
+  blogger_permalink: "/2013/08/android-studio026import.html"
+  blogger_internal: "/feeds/2514941205024880232/posts/default/4841788742407842044"
+  _thumbnail_id: '140'
+  _edit_last: '1'
+  _wp_old_slug: android-studio%e3%82%920-2-6%e3%81%ab%e3%82%a2%e3%83%83%e3%83%97%e3%83%87%e3%83%bc%e3%83%88%e3%81%97%e3%81%9f%e3%82%89import%e3%81%8c%e3%81%a7%e3%81%8d%e3%81%aa%e3%81%8f%e3%81%aa%e3%81%a3%e3%81%9f
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>Android Studioはかなり頻繁にアップデートされているので今日もAndroid Studioのアップデートをしました。<br />すると以下の画像のような状況に...</p>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2013/08/studio.png"><img border="0" src="{{ site.baseurl }}/assets/studio.png" /></a></p>
+<p>なんでこんなことになったのかよくわからなかったけどimportまでできてないので、SDKが読めてないみたいです。</p>
+<p>しかたないのでProject Structure(Ctrl + Shift + S)を開きます。</p>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2013/08/kore.png"><img border="0" src="{{ site.baseurl }}/assets/kore.png" /></a></p>
+<p>するとこんな設定画面が出てくるので<br /><a href="https://blog.xsota.com/wp-content/uploads/2013/08/Screenshot_from_2013-08-30-19-04-51.png"><img border="0" src="{{ site.baseurl }}/assets/Screenshot_from_2013-08-30-19-04-51.png" /></a></p>
+<p>Project SDKに適当なSDKを指定しましょう。</p>
+<p>あとはAndroid Studioを再起動すれば問題なく動作するようになりました。</p>
+<p>実行環境はubuntu13.04です。</p>

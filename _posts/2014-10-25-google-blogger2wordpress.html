@@ -1,0 +1,56 @@
+---
+layout: post
+title: 独自ドメインのGoogle Bloggerからwordpressに引っ越した時のパーマリンクの話
+date: 2014-10-25 22:45:09.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+tags:
+- Blogger
+- Google
+- Word Press
+- 備忘録
+- 引っ越し
+- 独自ドメイン
+meta:
+  _edit_last: '1'
+  _oembed_730c013c85ef67b9c8b3c2455e9d7644: "{{unknown}}"
+  _aioseop_opengraph_settings: a:12:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";}
+  _layout: inherit
+  _thumbnail_id: '366'
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>Bloggerからwordpressに引っ越してきて、今までのツイートのリンクとかから新しいブログにアクセスできなかった。</p>
+<p>困った。パーマリンクなんて言葉を使ったこともなくて、困った。最初はWordpressのURLをBloggerみたいなURLに自動で変えてくるプラグインを探した。</p>
+<p>でも無かった。そんな感じでググっているとパーマリンクを変えれば、やりたいことができるということに気がついた。</p>
+<p>&nbsp;</p>
+<p>この記事にGoogleとかの検索エンジンからたどり着いた人は「前置きはいいから情報が見たい」とか思っていると思うので、思い出を語るのは辞めよう。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Bloggerのリンクがこういう感じだったから</p>
+<p><a href="http://konohappa.blogspot.jp/2014/07/eclipse.html">http://konohappa.blogspot.jp/2014/07/eclipse.html</a></p>
+<p>&nbsp;</p>
+<p>パーマリンクの設定をこうした。</p>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2014/10/hoge.png"><img class="alignnone wp-image-366 size-medium" src="{{ site.baseurl }}/assets/hoge-300x129.png" alt="hoge" width="300" height="129" /></a></p>
+<p>画像しかないと「コピペさせろ」って怒られそうだからテキストでも書いておこう。</p>
+<p><em>/%year%/%monthnum%/%postname%.html</em></p>
+<p>&nbsp;</p>
+<p>以上のようにパーマリンクの設定をすると、投稿の編集画面にパーマリンクの編集項目が追加される。</p>
+<p>&nbsp;</p>
+<p>ただこれを書くだけだと、日本語のタイトルがそのままURLに入っちゃうので、自分のBloggerの記事をみながら、手動で変えよう。</p>
+<p>Bloggerだと日本語はURLに入らないで、アルファベットと数字だけ抜き出してたような気がする。</p>
+<p>日本語だけだとなんか投稿IDかなんかが入ってたような気がする。</p>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2014/10/hoge1.png"><img class="alignnone size-full wp-image-367" src="{{ site.baseurl }}/assets/hoge1.png" alt="hoge" width="916" height="169" /></a></p>
+<p>とりあえずこんな感じで、パーマリンクの設定を書いたような気がする。あんまりおぼえてない。</p>
+<p>なんかパーマリンクの設定をいじってたら.htaccessのRewirteengineだかなんだかを変更したような気がする。</p>
+<p>忘れた。気になる人はぐぐって。</p>

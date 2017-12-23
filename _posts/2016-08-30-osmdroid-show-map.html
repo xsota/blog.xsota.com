@@ -1,0 +1,82 @@
+---
+layout: post
+title: osmdroidで地図を表示した
+date: 2016-08-30 21:17:51.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+- 開発
+tags:
+- Android
+- osmdroid
+meta:
+  _edit_last: '1'
+  _sd_is_markdown: '1'
+  _aioseop_opengraph_settings: a:13:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";s:44:"aioseop_opengraph_settings_customimg_twitter";s:0:"";}
+  _layout: inherit
+  _thumbnail_id: '658'
+  snap_isAutoPosted: '1'
+  _nxs_snap_sh_TW0_1472559479: a:30:{s:4:"doTW";i:0;s:5:"nName";s:5:"xsota";s:5:"twURL";s:25:"https://twitter.com/xsota";s:9:"twConsKey";s:22:"5Vs67dWq3MJNdc3oYgxcOw";s:9:"twConsSec";s:43:"ZWWWJO6jRKgKWDFotFT73cDuOXCbGzeDm5igytlZLJc";s:10:"twAccToken";s:50:"182750651-v8LAldyIbGTb0Ye1FSAjtNMikletSOWAByzh9djd";s:6:"catSel";i:0;s:8:"catSelEd";s:0:"";s:10:"riComments";i:0;s:11:"riCommentsM";i:0;s:12:"riCommentsAA";i:0;s:8:"rpstDays";i:0;s:7:"rpstHrs";i:0;s:8:"rpstMins";i:0;s:6:"rpstOn";i:0;s:8:"rpstStop";s:1:"O";s:11:"rpstOnlyPUP";i:0;s:7:"fltrsOn";i:0;s:11:"rpstBtwDays";a:0:{}s:13:"twAccTokenSec";s:43:"BT5mYuSyDy0XtWQ4Fx2yS5E2htfC1kF1G6X5THwLy1M";s:11:"twMsgFormat";s:15:"%TITLE%
+    - %URL%";s:8:"attchImg";i:1;s:8:"isPosted";s:0:"";s:8:"imgToUse";s:0:"";s:2:"do";s:1:"1";s:2:"ii";i:0;s:5:"nDays";i:0;s:4:"nHrs";i:0;s:4:"nMin";i:0;s:9:"timeToRun";i:1472559479;}
+  _snap_forceSURL: '2'
+  snap_MYURL: ''
+  snapEdIT: '1'
+  snapTW: s:289:"a:1:{i:0;a:10:{s:2:"do";s:1:"1";s:10:"SNAPformat";s:15:"%TITLE% -
+    %URL%";s:8:"attchImg";s:1:"1";s:9:"isAutoImg";s:1:"A";s:8:"imgToUse";s:0:"";s:4:"doTW";s:1:"1";s:11:"isPrePosted";s:1:"1";s:8:"isPosted";s:1:"1";s:4:"pgID";s:18:"770596660804071425";s:5:"pDate";s:19:"2016-08-30
+    12:18:56";}}";
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>こんにちは、xsotaです。<br />
+今日はよくわかんないけどosmdroidを使って地図を表示したくなったので、なんとなくやってみました。<br />
+暇になったらもっと突っ込んだネタを書いてみようかと思います。</p>
+<h2>OSM</h2>
+<ul>
+<li>
+<p>osmdroid<br />
+osmdroidはOpen Street MapをAndroidで使えるようにする超すごいやつだよ<br />
+<a href="https://github.com/osmdroid/osmdroid">https://github.com/osmdroid/osmdroid</a></p>
+</li>
+<li>
+<p>Open Street Map(OSM)<br />
+みんなで地図をつくる超すごいやつ<br />
+<a href="https://openstreetmap.jp/">https://openstreetmap.jp/</a></p>
+</li>
+</ul>
+<h2>つかってみるよ</h2>
+<p>まずはプロジェクトをEmptyActivtyとか指定しててきとうに作ってね。</p>
+<h3>gradleの設定</h3>
+<pre><code>repositories {
+        jcenter()
+        mavenCentral() //これを追加
+    }
+</code></pre>
+<pre><code>dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+
+    compile 'org.osmdroid:osmdroid-android:5.2@aar'//こいつを追加
+}
+
+</code></pre>
+<p>これでosmdroidが使えるようになるよ！</p>
+<h3>AndroidManifestにインターネット使う宣言するよ</h3>
+<p><script src="https://gist.github.com/xsota/9cdf714676ba3b118adbf6518b26e2ed.js"></script></p>
+<h3>layoutにMapViewを追加するよ</h3>
+<p><script src="https://gist.github.com/xsota/3a16f1575f2dd5dff1a011ccef3e6d6b.js"></script></p>
+<h3>MapViewにTileSourceとかタッチでズームできるようにする設定をするよ</h3>
+<p><script src="https://gist.github.com/xsota/396db1fb668d13bb5bd02a7a17bafe8c.js"></script></p>
+<h3>とりあえず地図が表示できるようになったぞい</h3>
+<p><img src="{{ site.baseurl }}/assets/20160830205202.png" alt="osmdroid" width="360" height="640" class="alignnone size-full wp-image-658" /></p>
+<p>めっちゃ簡単にOpen Street Mapの地図を使ったアプリが作れるので、使ってみてはどうでしょうか。</p>
+<p>「GoogleMapではアレができるのにosmdroidではできない！！！！」っていうネタがあったらチャレンジしてみたいので誰か教えて下さい。</p>
+<p>それではゲームに戻ります。さようなら。</p>

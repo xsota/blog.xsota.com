@@ -1,0 +1,61 @@
+---
+layout: post
+title: "【備忘録】awsのはなし。ec2にs3をs3fsでマウント"
+date: 2014-11-04 15:51:09.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+tags:
+- aws
+- ec2
+- s3
+- s3fs
+- 備忘録
+meta:
+  _edit_last: '1'
+  _aioseop_opengraph_settings: a:12:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";}
+  _layout: inherit
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>これをやったのが先月のはなしだから、既におぼえていない。</p>
+<p>備忘録の意味ないじゃん。</p>
+<p>&nbsp;</p>
+<p>S3 Bucketをつくる</p>
+<p>ユーザをつくる</p>
+<p>S3にアクセスできる権限を付与しておく</p>
+<p>Access Key ID</p>
+<p>Secret Access Key</p>
+<p>をメモする</p>
+<p>&nbsp;</p>
+<p>s3fsをインストールする</p>
+<pre>$ sudo yum -y install gcc-c++ fuse fuse-devel libcurl-devel libxml2-devel openssl-devel</pre>
+<pre>$ git clone https://github.com/s3fs-fuse/s3fs-fuse.git</pre>
+<p>解凍してから</p>
+<pre>
+$ ./autogen.sh
+$ ./configure --prefix<span class="o">=</span>/usr
+$ make
+$ sudo make install</pre>
+<pre><span class="nb">$ echo</span> <span class="s2">"Access Key ID:Secret Access Key"</span> | sudo tee -a /etc/passwd-s3fs</pre>
+<p>マウント先をつくる</p>
+<pre>
+$ mkdir /mnt/hoge
+$ sudo /usr/bin/s3fs バケット名 /mnt/hoge -o rw,allow_other,default_acl=public-read
+</pre>
+<p>確認しておこう</p>
+<pre>$df -h</pre>
+<p>なんかしらんけど、マウントできなくなったり接続できなくなったら、umountしてからもっかいs3fsでマウントしてみよう。<br />
+$ sudo umount /mnt/hoge<br />
+S3への読み書きめっちゃ遅い。悲しい。<br />
+ほげ〜、たくさん書き込むと接続切れる。何故だ。<br />
+よくわからん。</p>

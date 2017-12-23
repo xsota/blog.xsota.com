@@ -1,0 +1,46 @@
+---
+layout: post
+title: wordpressで、指定したカテゴリの最新記事を表示させる
+date: 2014-07-11 23:49:00.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+tags: []
+meta:
+  blogger_blog: konohappa.blogspot.com
+  blogger_author: Sota X
+  blogger_permalink: "/2014/07/wordpress.html"
+  blogger_internal: "/feeds/2514941205024880232/posts/default/5569459891944222972"
+  _thumbnail_id: '62'
+  _edit_last: '1'
+  _wp_old_slug: wordpress%e3%81%a7%e3%80%81%e6%8c%87%e5%ae%9a%e3%81%97%e3%81%9f%e3%82%ab%e3%83%86%e3%82%b4%e3%83%aa%e3%81%ae%e6%9c%80%e6%96%b0%e8%a8%98%e4%ba%8b%e3%82%92%e8%a1%a8%e7%a4%ba%e3%81%95%e3%81%9b%e3%82%8b
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>こんにちは<a href="https://twitter.com/xsota" target="_blank">xsota</a>です。</p>
+<p>wordpress、よくわからんけど遊んでます。</p>
+<p>今日はwordpressにてカテゴリの最新記事を表示、みたいなことをやってみました。</p>
+<p>↓こういうやつね<br /><a href="https://blog.xsota.com/wp-content/uploads/2014/07/wp.png"><img border="0" src="{{ site.baseurl }}/assets/wp.png" height="247" width="400" /></a><br /><a href="http://wp.xsota.com/wordpress" target="_blank">wp.xsota.com</a></p>
+<p>めんどくさいから手順だけメモ</p>
+<p>
+<h3>exec-phpをインストール</h3>
+<p><a href="https://wordpress.org/plugins/exec-php/">https://wordpress.org/plugins/exec-php/</a></p>
+<p>これを使うと、記事の本文とかウィジェットでphpが使えるようになる。</p>
+<p>ダウンロードしてくるか、プラグインの新規追加で「exec-php」で検索してインストールする。</p>
+<p>プラグインを有効化して、特に設定はいじらなかった。</p>
+<h3>ウィジェットにテキストを追加</h3>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2014/07/wpwp.png"><img border="0" src="{{ site.baseurl }}/assets/wpwp.png" /></a></p>
+<p><i><b><code><br /></code></b></i>
+<pre><i><b><code>&lt;?php<br />$posts = get_posts('numberposts=3&amp;category=4');<br />global $post;<br />?&gt;<br />&lt;?php<br />if($posts): foreach($posts as $post): setup_postdata($post); ?&gt;<br />&lt;li&gt;&lt;a href="&lt;?php the_permalink(); ?&gt;"&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;&lt;/li&gt;<br />&lt;?php endforeach; endif;<br />?&gt;<br /></code></b></i></pre>
+<p>('numberposts=ここに表示したい投稿の件数&amp;category=カテゴリid');</p>
+<p>するとこんな感じになる。</p>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2014/07/wp.png"><img border="0" src="{{ site.baseurl }}/assets/wp.png" height="247" width="400" /></a></p>
+<p>はじめてphp書いた。よくわからん。</p>

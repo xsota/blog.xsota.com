@@ -1,0 +1,82 @@
+---
+layout: post
+title: じゃんけんするAndroidアプリの作り方を書いたよ
+date: 2016-02-14 20:38:18.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+- 開発
+tags:
+- Android
+- ButterKnife
+- じゃんけん
+- アプリ
+- スマホ
+meta:
+  _edit_last: '1'
+  _aioseop_opengraph_settings: a:12:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";}
+  _layout: inherit
+  _thumbnail_id: '548'
+  snap_isAutoPosted: '1'
+  _nxs_snap_sh_TW0_1455449904: a:26:{s:4:"doTW";i:1;s:5:"nName";s:5:"xsota";s:5:"twURL";s:25:"https://twitter.com/xsota";s:9:"twConsKey";s:22:"5Vs67dWq3MJNdc3oYgxcOw";s:9:"twConsSec";s:43:"ZWWWJO6jRKgKWDFotFT73cDuOXCbGzeDm5igytlZLJc";s:10:"twAccToken";s:50:"182750651-v8LAldyIbGTb0Ye1FSAjtNMikletSOWAByzh9djd";s:6:"catSel";i:0;s:8:"catSelEd";s:0:"";s:10:"riComments";i:0;s:11:"riCommentsM";i:0;s:12:"riCommentsAA";i:0;s:8:"rpstDays";i:0;s:7:"rpstHrs";i:0;s:8:"rpstMins";i:0;s:6:"rpstOn";i:0;s:8:"rpstStop";s:1:"O";s:11:"rpstOnlyPUP";i:0;s:7:"fltrsOn";i:0;s:11:"rpstBtwDays";a:0:{}s:13:"twAccTokenSec";s:43:"BT5mYuSyDy0XtWQ4Fx2yS5E2htfC1kF1G6X5THwLy1M";s:11:"twMsgFormat";s:15:"%TITLE%
+    - %URL%";s:8:"attchImg";i:1;s:8:"isPosted";s:0:"";s:8:"imgToUse";s:0:"";s:2:"ii";i:0;s:9:"timeToRun";i:1455449904;}
+  _snap_forceSURL: '2'
+  snap_MYURL: ''
+  snapEdIT: '1'
+  snapTW: s:271:"a:1:{i:0;a:9:{s:4:"doTW";s:1:"1";s:10:"SNAPformat";s:15:"%TITLE%
+    - %URL%";s:8:"attchImg";s:1:"1";s:9:"isAutoImg";s:1:"A";s:8:"imgToUse";s:0:"";s:11:"isPrePosted";s:1:"1";s:8:"isPosted";s:1:"1";s:4:"pgID";s:18:"698833837774630913";s:5:"pDate";s:19:"2016-02-14
+    11:39:05";}}";
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>ButterKnifeを使ってじゃんけんAndroidアプリを作ってみよう。</p>
+<h2>プロジェクトの新規作成</h2>
+<p>Android Studioの左上の<br />
+File &gt; New &gt; New Project<br />
+でプロジェクトの新規作成するよ。</p>
+<p><img class="alignnone size-large wp-image-540" src="{{ site.baseurl }}/assets/a57e9136c6db0ce1bf5d0f6420a5f2bf-787x1024.png" alt="スクリーンショット 2016-02-14 19.03.44" width="720" height="937" /></p>
+<p>なんかてきとうにアプリの名前をつけるよ。<br />
+<img class="alignnone size-large wp-image-541" src="{{ site.baseurl }}/assets/4c392fa6ccebdd7928f6c63e15fc9956-1024x656.png" alt="スクリーンショット 2016-02-14 18.53.35" width="720" height="461" /></p>
+<p>ターゲットのAndroid ばーじょんを決めるよ。<br />
+今回は4.1にしたよ。88%くらい居るらしいよ。残りの12%の人は使えないアプリになっちゃうね。<br />
+<img class="alignnone size-large wp-image-542" src="{{ site.baseurl }}/assets/586fc46d4242c2b5dc7278a638285570-1024x654.png" alt="スクリーンショット 2016-02-14 18.54.06" width="720" height="460" /></p>
+<p>次はActivityを決めるよう。<br />
+Blank Activityでいいよ。<br />
+<img class="alignnone size-large wp-image-543" src="{{ site.baseurl }}/assets/d298c05d6208b6b00f28803fd8a250f5-1024x661.png" alt="スクリーンショット 2016-02-14 18.54.16" width="720" height="465" /></p>
+<p>Activity名をてきとうに決めるよ。<br />
+デフォルトでいいよ。<br />
+<img class="alignnone size-large wp-image-544" src="{{ site.baseurl }}/assets/e7da0d05554a7b070f5e92939b9a7983-1024x659.png" alt="スクリーンショット 2016-02-14 18.54.49" width="720" height="463" /></p>
+<p>とりあえずここまでくればプロジェクトの新規作成は完了だと思うよ。<br />
+このまま実行するとHello Worldって書かれた白い画面が出るよ。</p>
+<h2>じゃんけんの画面作成</h2>
+<p>じゃんけんの手の画像をdrawableに保存したよ。</p>
+<p><img class="alignnone size-full wp-image-547" src="{{ site.baseurl }}/assets/98fc06e56374db5425a127aa93478ee9.png" alt="スクリーンショット 2016-02-14 19.35.13" width="422" height="424" /></p>
+<p>こんなかんじに編集したよ。<br />
+<img class="alignnone size-large wp-image-548" src="{{ site.baseurl }}/assets/c2c4ee139c95b97074297a0f30a00655-562x1024.png" alt="スクリーンショット 2016-02-14 19.35.58" width="562" height="1024" /></p>
+<p><script src="http://gist-it.appspot.com/github/xsota/Janken2/blob/master/app/src/main/res/layout/activity_main.xml"></script></p>
+<h2>ButterKnifeを使う</h2>
+<p><a href="http://jakewharton.github.io/butterknife/" target="_blank">ButterKnife</a>を使うために app/build.gradleに追記するよ。</p>
+<p>dependenciesの中に<br />
+compile 'com.jakewharton:butterknife:7.0.1'<br />
+を書こうね。<br />
+<img src="{{ site.baseurl }}/assets/60b7b4a75c26c35466658bc991738f09.png" alt="スクリーンショット 2016-02-14 19.44.13" width="796" height="196" class="alignnone size-full wp-image-551" /></p>
+<p>書いたら右上にSync Nowとかなんとか書いてあるからクリックして同期してね。</p>
+<h2>じゃんけんの部分のプログラムを書く</h2>
+<p>やっとコードがかけるよ！よかったね。<br />
+こんなかんじのコードを書いたよ。<br />
+<script src="http://gist-it.appspot.com/github/xsota/Janken2/blob/master/app/src/main/java/com/xsota/janken2/janken2/MainActivity.java"></script></p>
+<h2>こんなかんじに動く</h2>
+<p>ちょきをタップしたときの画像だ。<br />
+<img src="{{ site.baseurl }}/assets/device-2016-02-14-202248-576x1024.png" alt="device-2016-02-14-202248" width="576" height="1024" class="alignnone size-large wp-image-556" /></p>
+<h2>さいご</h2>
+<p>このじゃんけんアプリはGitHubに上げておいたよ<br />
+<a href="https://github.com/xsota/Janken2" target="_blank">https://github.com/xsota/Janken2</a></p>

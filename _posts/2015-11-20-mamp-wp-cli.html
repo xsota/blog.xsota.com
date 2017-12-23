@@ -1,0 +1,50 @@
+---
+layout: post
+title: MAMP環境でwp-cliを使う
+date: 2015-11-20 20:06:23.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+tags:
+- MAMP
+- wordpress
+- wp-cli
+- コマンド
+meta:
+  _edit_last: '1'
+  _aioseop_opengraph_settings: a:12:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";}
+  _layout: inherit
+  _syntaxhighlighter_encoded: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<h3>wp-cliをダウンロードするよ〜</h3>
+<p>[shell]<br />
+% cd /Applications/MAMP/Library/bin<br />
+% curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar #wp-cliをダウンロード<br />
+% php wp-cli.phar --info  #wp-cliが動いてるかinfoみてみるよ〜<br />
+% chmod +x wp-cli.phar #実行できるようにしとく<br />
+% mv wp-cli.phar wp #名前をwpに変えておく(wpじゃなくてもいいよ)<br />
+[/shell]</p>
+<h3>.zshrcとかに書いたよ。</h3>
+<p>phpのversionのところは適宜変更してね。<br />
+[shell]<br />
+export MAMP=/Applications/MAMP/bin/php/php5.5.14/bin:/Applications/MAMP/Library/bin:<br />
+export PATH=$MAMP:$PATH<br />
+[/shell]</p>
+<h3>よみこみなおしたよ</h3>
+<p>[shell]<br />
+% source ~/.zshrc<br />
+[/shell]</p>
+<h3>おしまい</h3>
+<p>[shell]<br />
+% wp help<br />
+[/shell]</p>

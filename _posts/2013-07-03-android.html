@@ -1,0 +1,84 @@
+---
+layout: post
+title: Androidアプリを作ってみよう〜じゃんけん編
+date: 2013-07-03 23:13:00.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 開発
+tags:
+- Android
+- じゃんけん
+meta:
+  blogger_blog: konohappa.blogspot.com
+  blogger_author: Sota X
+  blogger_permalink: "/2013/07/android.html"
+  blogger_internal: "/feeds/2514941205024880232/posts/default/8437770975861174841"
+  _thumbnail_id: '144'
+  _edit_last: '1'
+  _wp_old_slug: android%e3%82%a2%e3%83%97%e3%83%aa%e3%82%92%e4%bd%9c%e3%81%a3%e3%81%a6%e3%81%bf%e3%82%88%e3%81%86%e3%80%9c%e3%81%98%e3%82%83%e3%82%93%e3%81%91%e3%82%93%e7%b7%a8
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>ゼミの仲間にAndroidアプリの開発について教えることになったのでじゃんけんアプリを使ってeclipseアプリ作成の流れを記事にしました。<br />口頭で説明することを前提に書いているのでけっこうてきとうです。<br />jdkやらeclipseやらandroidアプリの開発環境が整っていることが前提でお話は進んでいきます。<br />私はJava初心者なのでわかりやすいコードではないと思います...もっとがんばります...</p>
+<p></p>
+<h2>今回作るアプリ</h2>
+<div>Google Play で「じゃんけん！」をチェック！&nbsp;</div>
+<div><a href="https://play.google.com/store/apps/details?id=com.xsota.janken">https://play.google.com/store/apps/details?id=com.xsota.janken</a></div>
+<p></p>
+<h1>何故じゃんけんアプリか</h1>
+<p></p>
+<ul>
+<li>ButtonとButtonのlistenerを使える</li>
+<li>ついでにプログラムからimage viewの画像の変更の仕方も学べる(やったね！)</li>
+<li>textviewの変更とかもおぼえられる</li>
+<li>用意する絵が簡単</li>
+</ul>
+<p></p>
+<h1>じゃんけんアプリ開発の流れ</h1>
+<p>今回は、以下のような流れでじゃんけんアプリを作成します。</p>
+<p>Androidアプリケーションの新規作成<br />↓<br />グーチョキパーをイメージボタンに設定<br />結果表示のテキストビューを作成<br />自分の出した手と相手の手を表示するイメージビューを作成<br />↓<br />押されたボタンの手が画面に表示されるように<br />↓<br />相手の手をランダムに決定し画面に表示されるように<br />↓<br />自分の手と相手の手を比較し<br />結果(勝ち,負け,あいこ)を表示する</p>
+<p>では、実際にこの流れに沿ってやってみたいと思います。<br /><a name="more"></a></p>
+<p></p>
+<h1>0.アンドロイドアプリケーションの新規作成</h1>
+<p></p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/07/janken_icon1.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/janken_icon1.png" /></a></div>
+<p>File &gt;New &gt;Android Application Project を選択</p>
+<p>パッケージ名やアプリケーション名,アイコン画像は任意でいいです。<br />あとはデフォルトのままで問題ないと思います。</p>
+<h1>1.イメージボタンを設定する</h1>
+<p>初めにイメージボタンに表示するためにグーチョキパーの画像を用意します。<br />gimpとかでてきとうに描いてください。</p>
+<p>次に res&gt; layout&gt; hogehgoe.xml を開きます。(たぶんアプリケーションを新規作成した時点で勝手に開かれてます)</p>
+<p>デフォルトで生成されているhello worldのテキストビューを削除します。</p>
+<p>そしてPaletteの中からImage Buttonを選択しててきとうに配置します。<br />これはじゃんけんの手を選択するボタンなのでグーチョキパーの画像を設定しておきます。<br />じゃんけんの結果を表示するためののテキストビューを作成します。<br />自分の出した手と相手の手を表示するイメージビューを作成します。</p>
+<p>私はこんな感じにしました。</p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/07/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-07-03-23.48.23.png" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-07-03-23.48.23.png" /></a></div>
+<p>それぞれのidは以下のようになっています。<br />ぐーのimage buttonのid:gu<br />ちょき:choki<br />ぱー:per<br />結果表示用text viewのid:result<br />自分手の表示するimage viewのid:me<br />相手の手を表示するimage view:enemy</p>
+<p></p>
+<h1>2.押されたボタンに対応する手を表示</h1>
+<p>ここからはいよいよプログラムを書いていきます。</p>
+<pre><code>import android.os.Bundle;<br />import android.app.Activity;<br />import android.view.View;<br />import android.view.View.OnClickListener;<br />import android.widget.ImageButton;<br />import android.widget.ImageView;<br /><br /><br />public class MainActivity extends Activity implements OnClickListener{<br /> ImageButton gu,choki,per; <br /> int hands[] = new int[3];<br /> ImageView me;<br /> <br /> @Override<br /> protected void onCreate(Bundle savedInstanceState) {<br />  super.onCreate(savedInstanceState);<br />  setContentView(R.layout.activity_main);<br />  hands[0] = R.drawable.gu;<br />  hands[1] = R.drawable.choki;<br />  hands[2] = R.drawable.per;  <br />  me = (ImageView) findViewById(R.id.me);<br />  gu = (ImageButton) findViewById(R.id.gu);<br />  choki = (ImageButton) findViewById(R.id.choki);<br />  per = (ImageButton) findViewById(R.id.per);<br />  gu.setOnClickListener(this);<br />  choki.setOnClickListener(this);<br />  per.setOnClickListener(this);  <br /> }<br /><br /><br /> @Override<br /> public void onClick(View v) {  <br />  int hand=0;<br />  //0:gu 1:choki 2:per<br />  if (v == gu ){<br />   hand = 0;<br />  }else if (v == choki ){<br />   hand = 1;<br />  }else if (v == per ){<br />   hand = 2;<br />  }<br />  me.setImageResource(hands[hand]);<br />  }<br />}</code></pre>
+<p>これでボタンを押すと自分の手の画像が変わるようになりました。</p>
+<h1>3.相手の手をランダムに決定し画面に表示されるようにする</h1>
+<p>これは乱数を使います。</p>
+<p></p>
+<pre><code><span style="color: red;">import java.util.Random;</span><br /><br />import android.os.Bundle;<br />import android.app.Activity;<br />import android.view.View;<br />import android.view.View.OnClickListener;<br />import android.widget.ImageButton;<br />import android.widget.ImageView;<br /><br /><br />public class MainActivity extends Activity implements OnClickListener{<br /> ImageButton gu,choki,per; <br /> int hands[] = new int[3];<br /> ImageView me<span style="color: red;">,enemy</span>; <br /> @Override<br /> protected void onCreate(Bundle savedInstanceState) {<br />  super.onCreate(savedInstanceState);<br />  setContentView(R.layout.activity_main);<br />  hands[0] = R.drawable.gu;<br />  hands[1] = R.drawable.choki;<br />  hands[2] = R.drawable.per;  <br />  me = (ImageView) findViewById(R.id.me);<br />  <span style="color: red;">enemy =(ImageView) findViewById(R.id.enemy);</span><br />  gu = (ImageButton) findViewById(R.id.gu);<br />  choki = (ImageButton) findViewById(R.id.choki);<br />  per = (ImageButton) findViewById(R.id.per);<br />  gu.setOnClickListener(this);<br />  choki.setOnClickListener(this);<br />  per.setOnClickListener(this);  <br /> }<br /><br /><br /> @Override<br /> public void onClick(View v) {  <br />  <span style="color: red;">Random random = new Random();<br />  int n = random.nextInt(3);</span><br />  int hand=0;<br />  //0:gu 1:choki 2:per<br />  if (v == gu ){<br />   hand = 0;<br />  }else if (v == choki ){<br />   hand = 1;<br />  }else if (v == per ){<br />   hand = 2;<br />  }<br />  me.setImageResource(hands[hand]);<br />  <span style="color: red;">enemy.setImageResource(hands[n]);</span><br />  }<br />}<br /></code></pre>
+<p>これで相手の画像も変わるようになりました。</p>
+<h1>4.勝ち負けの判定と結果の表示</h1>
+<p>ぐー = 0,&nbsp;ちょき = 1,&nbsp;ぱー = 2&nbsp;なので</p>
+<p><i>((自分の手-相手の)+3)%3</i></p>
+<p>の結果が</p>
+<p>0ならあいこ<br />1なら負け<br />2なら勝ち</p>
+<p>となります。</p>
+<p><code></code></p>
+<pre><code>import java.util.Random;<br /><br />import android.os.Bundle;<br />import android.app.Activity;<br />import android.view.View;<br />import android.view.View.OnClickListener;<br />import android.widget.ImageButton;<br />import android.widget.ImageView;<br /><span style="color: red;">import android.widget.TextView;</span><br /><br /><br />public class MainActivity extends Activity implements OnClickListener{<br /> ImageButton gu,choki,per; <br /> int hands[] = new int[3];<br /> ImageView me,enemy; <br /> <span style="color: red;">TextView result;</span><br /> @Override<br /> protected void onCreate(Bundle savedInstanceState) {<br />  super.onCreate(savedInstanceState);<br />  setContentView(R.layout.activity_main);<br />  hands[0] = R.drawable.gu;<br />  hands[1] = R.drawable.choki;<br />  hands[2] = R.drawable.per;  <br />  me = (ImageView) findViewById(R.id.me);<br />  enemy =(ImageView) findViewById(R.id.enemy);<br />  gu = (ImageButton) findViewById(R.id.gu);<br />  choki = (ImageButton) findViewById(R.id.choki);<br />  per = (ImageButton) findViewById(R.id.per);<br />  <span style="background-color: white; color: red;">result = (TextView) findViewById(R.id.result);</span><br />  gu.setOnClickListener(this);<br />  choki.setOnClickListener(this);<br />  per.setOnClickListener(this);  <br /> }<br /><br /><br /> @Override<br /> public void onClick(View v) {  <br />  Random random = new Random();<br />  int n = random.nextInt(3);<br />  int hand=0;<br />  //0:gu 1:choki 2:per<br />  if (v == gu ){<br />   hand = 0;<br />  }else if (v == choki ){<br />   hand = 1;<br />  }else if (v == per ){<br />   hand = 2;<br />  }<br />  me.setImageResource(hands[hand]);<br />  enemy.setImageResource(hands[n]);<br />  <span style="color: red;">int syouhai = (hand - n) + 3;<br />  <br />  if (syouhai%3 == 0){<br />   result.setText("あいこ");   <br />  }else if(syouhai%3 == 1){<br />   result.setText("あんたの負けだ");<br />  }else if(syouhai%3 == 2){<br />   result.setText("あんたの勝ちだ");<br />  }</span><br />  }<br />}</code></pre>
+<p>これで完成！<br /><a href="https://blog.xsota.com/wp-content/uploads/2013/07/device-2013-06-28-002813.png"><img border="0" src="{{ site.baseurl }}/assets/device-2013-06-28-002813.png" /></a></p>
+<p>追記(2013/09/21)<br /><a href="https://play.google.com/store/apps/details?id=com.emilyanne.janken2" target="_blank">ここ</a>にこの記事を参考にアプリを作ってくれた方が居ました。</p>
+<p>追記(2013/12/29)<br />またこの記事を参考にアプリをつくってくれた方が居ました。超嬉しい。<br /><a href="https://play.google.com/store/apps/details?id=com.takanomeblog.janken" target="_blank">https://play.google.com/store/apps/details?id=com.takanomeblog.janken</a></p>

@@ -1,0 +1,85 @@
+---
+layout: post
+title: Titanium Scrollable Viewの動きをみてみた時のコード
+date: 2015-04-14 20:26:56.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+- 開発
+tags:
+- Scrollable View
+- Titanium Mobile
+- メモ
+- 備忘録
+meta:
+  _edit_last: '1'
+  _aioseop_opengraph_settings: a:12:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";}
+  _layout: inherit
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<pre>
+var win = Ti.UI.createWindow();
+
+var view1 = Ti.UI.createView({
+  backgroundColor : '#123',  
+});
+var view2 = Ti.UI.createView({
+  backgroundColor : '#246'
+});
+var view3 = Ti.UI.createView({
+  backgroundColor : '#48b'
+});
+
+var scrollableView = Ti.UI.createScrollableView({
+  views : [view1, view2, view3],
+  showPagingControl : true
+});
+
+win.add(scrollableView);
+win.open();
+Ti.API.info('custom x', view1.x);
+  Ti.API.info('custom y', view1.y);
+  Ti.API.info(JSON.stringify(view1.rect));
+view1.addEventListener('scroll', function (e){ 
+  Ti.API.info('swipe x', e.x);
+  Ti.API.info('swipe y', e.y);
+});
+
+Ti.App.addEventListener("scroll_hook",function(e){
+ Ti.API.info('custom x', view1.rect.x);
+  Ti.API.info('custom y', view1.rect.y);
+    Ti.API.info('custom e ',JSON.stringify(e));
+
+});
+
+
+scrollableView.addEventListener('scroll', function (e) {
+  Ti.App.fireEvent('scroll_hook');
+  Ti.API.info('-------------info-----------');
+  Ti.API.info('e', JSON.stringify(e));
+  Ti.API.info('width', e.source.width);
+  Ti.API.info('height', e.source.heigh);
+  Ti.API.info('currentPage', e.source.currentPage);
+  Ti.API.info('source x', e.source.x);
+  Ti.API.info('x', e.x);
+  //Ti.API.info('views', e.source.view);
+  Ti.API.info('source', JSON.stringify(e.source));
+  var view = e.source.views[e.source.currentPage];  
+  Ti.API.info('view', JSON.stringify(view));
+  
+});
+
+scrollableView.addEventListener("scrollEnd", function (e) {
+ Ti.API.info('end', JSON.stringify(e));
+}); 
+</pre>

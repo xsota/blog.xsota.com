@@ -1,0 +1,57 @@
+---
+layout: post
+title: IIJmio光が遅かったのでIPoEオプション有効にしてDS-Lite使ったら改善したときの日記
+date: 2017-06-05 22:43:01.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+tags:
+- Buffalo
+- IIJ
+- mio光
+meta:
+  _wpcom_is_markdown: '1'
+  _edit_last: '1'
+  _thumbnail_id: '1082'
+  _aioseop_opengraph_settings: a:13:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";s:44:"aioseop_opengraph_settings_customimg_twitter";s:0:"";}
+  _layout: inherit
+  _wpas_done_all: '1'
+  _wpas_skip_16017036: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>どうもxsotaです。</p>
+<p>タイトルが全てです。</p>
+<p>平日昼とかはそこまでストレスになるほど遅くはなかったのですが、平日夜とか土日のゴールデンタイムにマジで遅くて死ぬかと思いました。</p>
+<p>下り1~3Mbpsで上り数十Mpbsとかでした。遅い。</p>
+<p>まぁ一年くらい放置して使ってたんですけどね。</p>
+<p>でも、AmazonPhotoに上げた画像をダウンロードするのに数分待ったり、docker使ったりAndroid Studioとかbrew updateとかいろいろするとそれだけで時間がくわれて何もする気が起きなくなるのでしかたなくIPoEオプションを追加しました。</p>
+<p>ついでにルータもWXR-1901DHP3を買いました。</p>
+<p>ヨドバシ.comで注文したら、当日に届いたので神かな。と思いました。</p>
+<p>最初はDS-Liteを有効にする方法がわからなかったので手順をメモっておきます。</p>
+<p>ルータにログイン<br />
+↓<br />
+詳細設定<br />
+↓<br />
+Internet<br />
+↓<br />
+PPPoE<br />
+↓<br />
+設定を削除<br />
+↓<br />
+ルータを再起動</p>
+<p>これで有効になりました。</p>
+<p>そもそもIPoEオプションを有効にしていれば、購入してすぐONUに接続するだけでいいみたいですね。簡単だ。</p>
+<p>というこで、<a href="http://beta.speedtest.net/">てきとうなサイト</a>で速度計測したのを貼っておきます。<img src="{{ site.baseurl }}/assets/4da3bdf1ae2cb0277f9c76e0e9af7371-1024x186.png" alt="" width="720" height="131" class="alignnone size-large wp-image-1082" /></p>
+<p>こんなに改善するならもっと早くやっておけばよかったなあ。と思いました。</p>
+<p>これでAmazonPhotoとかから画像ダウンロードするのが早くなるのでブログの更新頻度も上がるんじゃないですかね。わかんないけど。</p>
+<p>ってかNetflixとかDアニメストアとか、たまに再生止まってたんだけど止まらなくなって快適すぎる〜〜〜〜〜〜〜〜〜〜〜〜〜</p>
+<p>BLAME!面白かったです。さようなら。</p>

@@ -1,0 +1,56 @@
+---
+layout: post
+title: xserverでgit使えるようにしたときのメモだよ
+date: 2015-11-22 15:45:13.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+tags:
+- git
+- shell
+- xserver
+meta:
+  _edit_last: '1'
+  _aioseop_opengraph_settings: a:12:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";}
+  _layout: inherit
+  _syntaxhighlighter_encoded: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>curlを入れるよ<br />
+[shell]<br />
+% wget https://github.com/bagder/curl/releases/download/curl-7_45_0/curl-7.45.0.zip<br />
+% unzip curl-7.45.0.zip<br />
+% cd curl-7.45.0<br />
+% ./configure --prefix=/home/$USER --enable-libcurl-option<br />
+% make &amp;&amp; make install<br />
+[/shell]</p>
+<p>gettextを入れるよ<br />
+[shell]<br />
+% wget http://ftp.gnu.org/pub/gnu/gettext/gettext-0.19.6.tar.gz<br />
+% tar zxvf gettext-0.19.6.tar.gz<br />
+% cd gettext-0.19.6<br />
+% ./configure --prefix=/home/$USER<br />
+% make &amp;&amp; make install<br />
+[/shell]</p>
+<p>ついにgitをどうにゅうだ〜<br />
+[shell]<br />
+% wget https://github.com/git/git/archive/master.zip<br />
+% unzip master.zip<br />
+% cd git-master<br />
+% autoconf<br />
+% ./configure --prefix=/home/$USER --with-curl=/home/$USER --with-expat<br />
+% make &amp;&amp; make install<br />
+[/shell]</p>
+<p>.bashrcとかに書こう<br />
+[shell]<br />
+export PATH=$HOME/bin:$PATH<br />
+[/shell]</p>

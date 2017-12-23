@@ -1,0 +1,45 @@
+---
+layout: post
+title: Titanium Mobile クリックされたボタンのIDを取得
+date: 2015-01-19 19:37:44.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+- 開発
+tags:
+- Titanium Mobile
+- クリック
+- ボタン
+- 備忘録
+meta:
+  _edit_last: '1'
+  _aioseop_opengraph_settings: a:12:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";}
+  _layout: inherit
+  _thumbnail_id: '395'
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p><strong><em>index.xml</em></strong></p>
+<p><code>&lt;Button id="gu" onClick="janken"&gt;ぐう&lt;/Button&gt;<br />
+&lt;Button id="tyo" onClick="janken"&gt;ちょき&lt;/Button&gt;<br />
+&lt;Button id="pa" onClick="janken"&gt;ぱあ&lt;/Button&gt;<br />
+</code></p>
+<p><strong><em>index.js</em></strong></p>
+<p><code>function janken(e){<br />
+//console.log(e);<br />
+<strong> alert(e.source.id);</strong><br />
+}<br />
+</code><br />
+<a href="https://blog.xsota.com/wp-content/uploads/2015/01/スクリーンショット-2015-01-19-19.33.44.png"><img class="alignnone size-full wp-image-395" src="{{ site.baseurl }}/assets/&#12473;&#12463;&#12522;&#12540;&#12531;&#12471;&#12519;&#12483;&#12488;-2015-01-19-19.33.44.png" alt="スクリーンショット 2015-01-19 19.33.44" width="631" height="501" /></a></p>
+<p>&nbsp;</p>
+<p>備忘録を書いておかないと忘れる病気なので備忘録を書こう。</p>
+<p>ちゃんとじゃんけんアプリにしてからブログ書こうとおもってたけど、めんどうになってきた。</p>

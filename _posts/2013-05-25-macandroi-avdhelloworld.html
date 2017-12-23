@@ -1,0 +1,113 @@
+---
+layout: post
+title: MacでAndroiアプリ開発 AVDでHelloWorld
+date: 2013-05-25 14:30:00.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+- 開発
+tags:
+- Android
+- AVD
+- mac
+meta:
+  blogger_blog: konohappa.blogspot.com
+  blogger_author: Sota X
+  blogger_permalink: "/2013/05/macandroi-avdhelloworld.html"
+  blogger_internal: "/feeds/2514941205024880232/posts/default/7121543766256152231"
+  _thumbnail_id: '147'
+  _edit_last: '1'
+  _wp_old_slug: mac%e3%81%a7androi%e3%82%a2%e3%83%97%e3%83%aa%e9%96%8b%e7%99%ba-avd%e3%81%a7helloworld
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>Android端末を持っていなくてもAndroidアプリを作れる。<br />eclipseでAndroid Virtual Device を作成すればアプリの動作を確認できる。<br />でもちょっと動作遅い。</p>
+<p>今回はそんな環境でHello Worldの画面に表示するまでの記録です。</p>
+<p></p>
+<h3>1. 仮想Android作成</h3>
+<p>まず仮想上のAndroid端末を作成します。</p>
+<div></div>
+<div>Window &gt; Android Virtual Device Manager</div>
+<div></div>
+<div>するとこのようなウィンドウが現れます。</div>
+<div>私の場合既に仮想端末が作られているので二つ表示されています。</div>
+<div></div>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-13.26.17.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="282" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-13.26.17.png" width="400" /></a></div>
+<div></div>
+<div>新しく作成したいので、右側にある"New..."を選択します。</div>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-13.28.22.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="320" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-13.28.22.png" width="228" /></a></div>
+<div></div>
+<div><b>簡単な説明</b><br />AVD Name: 今回作成する仮想端末の名前</div>
+<div>Device: 画面の解像度</div>
+<div>Target: AndroidのVersion</div>
+<div>CPU/ABI: たぶんエミュレートするCPUの種類</div>
+<div>Keyboard: ハードウェアのキーボードを利用するか</div>
+<div>Skin: Backキーや電源ボタンをスキンに表示するか</div>
+<div>Front Camera: フロントカメラに利用するカメラを選択できる</div>
+<div>Back Camera: バックカメラに利用するカメラを選択できる(私の環境にUSBカメラがない</div>
+<div>ので未確認)</div>
+<div></div>
+<div>Memory Options: Ramサイズと Heap領域のサイズを指定</div>
+<div>Internal Storage: 内蔵メモリのサイズ</div>
+<div>SA Card: SDカードのサイズ</div>
+<div>Emulation Options: Snapshotにチェックを入れると終了時にイメージファイルを作成する? Use Host GPUにチェックを入れるとPCのGPUを使用するので環境によっては動作が高速になる</p>
+<p>以下は今回作成した端末の設定画像です。</p></div>
+<div></div>
+<div></div>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-13.34.19.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="640" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-13.34.19.png" width="449" /></a></div>
+<div></div>
+<div>これで仮想端末の作成は完了です。</p>
+<h3>2.Hello Worldと表示するアプリの作成</h3>
+<p>次にAndroid Projectを作成します。<br />File &gt; New &gt; Android Application Project を選択。<br />以下の画像の様なウィンドウがでます。<br />Application Name: アプリケーションの名前<br />Project Name:プロジェクトの名前<br />Package Name: パッケージの名前(Playストアではパッケージ名でアプリケーションが管理されるようです)</p>
+<p><b>簡単な説明</b><br />Minimum Required SDK: 動作する最低限のSDK<br />Target SDK: 対象となるAndroidのSDK<br />Compile With: コンパイルするSDK<br />Theme: 画面のテーマ(自動生成されるActivityのテーマってこと？)</p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-13.22.48.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="336" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-13.22.48.png" width="400" /></a></div>
+<p></div>
+<div></div>
+<div>Next &gt;</p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-14.05.30.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="337" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-14.05.30.png" width="400" /></a></div>
+<p></div>
+<div><b>簡単な説明</b><br />Create custom launcher icon: チェックを入れるとNextを押した際にアイコンの設定画面になる<br />Create activity: チェックを入れるとActibityの設定画面になる<br />Mark this project as a library: このプロジェクトをライブラリにするか(ライブラリってなんだ)<br />Create Project in Worksoace: チェックを入れるとProjectがWorkspace(eclipse起動時に設定)に作成される<br />&nbsp;Working sets: なんだかよくわからん</p>
+<p>Next &gt;</p>
+<p>icon の設定画面です</p>
+<p>Next &gt;</p>
+<p>Activityの設定画面です<br />Blank Activity<br />Fullscreen Activity<br />Master/Detail Flow<br />の3つから選べます。<br />説明画像と説明文があるので省略。<br />今回はBlank Activityを指定。</p>
+<p>Next &gt;</p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-13.23.29.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="338" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-13.23.29.png" width="400" /></a></div>
+<p><b>簡単な説明</b><br />Activity Name: アクティビティの名前<br />Layout Name: レイアウトの名前<br />Navigatioin Type: ナビゲーションタイプ。タブとかドロップダウンとか選べる(やったことない)</p>
+<p>Finish<br />これでHello Worldアプリは完成です。<br />え？まだHello Worldって文字すら入力してないよ？と思おうかもしれませんが、Activityを作成したさいに自動でHello Worldという文字が表示されるようになっています。</p>
+<h3>3.実行</h3>
+</div>
+<div>実行するためにさきほど作成した仮想Androidを起動します</div>
+<div></div>
+<div>Window &gt; Android Device Manager &nbsp;を選択</div>
+<div>さきほど作成した端末を選択し右側にあるStartをクリック</div>
+<div></div>
+<div>起動オプションとかでてくるけどよくわからんのでデフォルトのまま起動</div>
+<div></div>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-14.20.51.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="286" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-14.20.51.png" width="320" /></a></div>
+<div></div>
+<div></div>
+<div>待ちます。</div>
+<div></div>
+<div></div>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-14.22.57.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="284" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-14.22.57.png" width="320" /></a></div>
+<div></div>
+<div>私の環境では1分くらい待ちました。</p>
+<p>つぎに先ほど作成したHelloWorldプロジェクトを実行します。</p>
+<p>Run &gt; Run を選択</p>
+<p>あとは仮想Androidを眺めて待ちます。</p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-14.25.23.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="286" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-14.25.23.png" width="320" /></a></div>
+<p>さすがにこれくらいのアプリだとほとんど待たずに動きます。</p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/05/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-14.28.14.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="286" src="{{ site.baseurl }}/assets/E3-82-B9-E3-82-AF-E3-83-AA-E3-83-BC-E3-83-B3-E3-82-B7-E3-83-A7-E3-83-83-E3-83-88-2013-05-25-14.28.14.png" width="320" /></a></div>
+<div style="clear: both; text-align: center;"></div>
+<p>アプリ一覧の中にもHelloWorldの姿があります。<br />ちょっと嬉しい。</p>
+<p>以上で仮想AndroidでHelloWorldをするまでの記録は終わりです。<br />やっぱり実機で動かすほうが簡単で動作も早いのでストレスがありません。</div>

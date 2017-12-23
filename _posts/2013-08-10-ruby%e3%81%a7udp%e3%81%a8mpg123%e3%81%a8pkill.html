@@ -1,0 +1,41 @@
+---
+layout: post
+title: RubyでUDPとmpg123とpkill
+date: 2013-08-10 20:53:00.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+- 開発
+tags:
+- mpg123
+- pkill
+- ruby
+- udp
+meta:
+  blogger_blog: konohappa.blogspot.com
+  blogger_author: Sota X
+  blogger_permalink: "/2013/08/rubyudpmpg123pkill.html"
+  blogger_internal: "/feeds/2514941205024880232/posts/default/6769247216611619873"
+  _thumbnail_id: '143'
+  _edit_last: '1'
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>Rubyで音楽を再生して、通信がくると一時停止したり再開したり停止するプログラムを書いてみた。</p>
+<p><a href="http://moko.cry.jp:3232/~keiji/ruby-manual-1.8-20050214/BasicSocket.html">このページを参考にした(2013/08/10)</a></p>
+<p>再生してるほうのプログラム</p>
+<pre><code><br />#!/usr/bin/ruby<br /># -*- coding: utf-8 -*-<br /><br />require "socket"<br /><br />udpsocket = UDPSocket.open()<br /><br />udpsocket.bind("0.0.0.0", 1230)#ipアドレスとport番号だよ<br /><br />t = Thread.new do#音楽再生は別スレッドで<br />  system"mpg123 apollo.mp3" <br />end<br /><br />p udpsocket.recv(5)#受信するデータの最大数をここで決めてるよ<br />puts"一時停止"<br />system"pkill -STOP mpg123"#ここで一時停止してるよ。サスペンドですね。<br /><br />p udpsocket.recv(4)<br />puts"再生再開"<br />system"pkill -CONT mpg123"#ここで再開してるよ。fgしても再開するかなぁ。<br /><br /><br />p udpsocket.recv(3)<br />puts"プロセスの終了"<br />system"pkill mpg123"#ころころしてるよ。<br /><br />t.join<br />udpsocket.close<br /><br /><br /></code></pre>
+<p>なんか送信しているほうのプログラム<br /><code></code></p>
+<pre><code>#!/usr/bin/ruby<br /><br />require "socket"<br /><br />udp = UDPSocket.open()<br /><br />sockaddress = Socket.pack_sockaddr_in(1230, "127.0.0.1")<br /><br />udp.send("HEY!!", 0, sockaddress)<br /><br />udp.close<br /><br /><br /></code></pre>
+<p>結果はこんな感じだけど音楽の一時停止とかは画像じゃ伝わらないか。要望があったら動画にでもしよう。</p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/08/Screenshot_from_2013-08-10-21-08-26.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="{{ site.baseurl }}/assets/Screenshot_from_2013-08-10-21-08-26.png" /></a></div>
+<p>アーティスト名とか文字化けしてるけど、<a href="http://amachamusic.chagasi.com/">甘茶の音楽工房さん</a>のアポロって曲でテストしたよ。</p>

@@ -1,0 +1,45 @@
+---
+layout: post
+title: Ubuntu13.04の日本語入力をMac風にしたくてuim + mozcの環境を導入 [備忘録]
+date: 2013-09-09 23:16:00.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+tags:
+- mac
+- mozc
+- ubuntu
+- uim
+- 日本語
+meta:
+  blogger_blog: konohappa.blogspot.com
+  blogger_author: Sota X
+  blogger_permalink: "/2013/09/ubuntu1304uim-mozc.html"
+  blogger_internal: "/feeds/2514941205024880232/posts/default/2580956104107455143"
+  _thumbnail_id: '132'
+  _edit_last: '1'
+  _wp_old_slug: ubuntu13-04%e3%81%ae%e6%97%a5%e6%9c%ac%e8%aa%9e%e5%85%a5%e5%8a%9b%e3%82%92mac%e9%a2%a8%e3%81%ab%e3%81%97%e3%81%9f%e3%81%8f%e3%81%a6uim-mozc%e3%81%ae%e7%92%b0%e5%a2%83%e3%82%92%e5%b0%8e%e5%85%a5
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>Ubuntu13.04にuim + mozcの環境を導入しました。</p>
+<p>自宅のMacがGoogle日本語入力なのでubuntuでもそれに近い作業感出したかった。</p>
+<p>以下メモ</p>
+<p></p>
+<pre><code><br /># apt-get install ibus-mozc mozc-server mozc-utils-gui<br /># apt-get install uim uim-mozc uim-utils<br /></code></pre>
+<p>システム設定&gt;言語サポート&gt;キーボード入力に使うIMシステム&gt;uim</p>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2013/09/1.png"><img border="0" height="276" src="{{ site.baseurl }}/assets/1.png" width="400" /></a></p>
+<p><a href="https://blog.xsota.com/wp-content/uploads/2013/09/2.png"><img border="0" height="400" src="{{ site.baseurl }}/assets/2.png" width="388" /></a></p>
+<p>その後</p>
+<pre><code><br />$ uim-toolbar-gtk<br /></code></pre>
+<p>uimの設定を開き変換キーと無変換キーでオンオフ切り替えできるようにする。</p>
+<p>これでMac風だ。やったね。</p>

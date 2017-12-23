@@ -1,0 +1,51 @@
+---
+layout: post
+title: js functionで引数に初期値を与えたい〜
+date: 2015-01-28 11:12:10.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+- 開発
+tags:
+- function
+- js
+- 備忘録
+- 初期値
+- 引数
+meta:
+  _edit_last: '1'
+  _aioseop_opengraph_settings: a:12:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";}
+  _layout: inherit
+  _thumbnail_id: '414'
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<pre>function hoge(hoge) {
+  hoge = hoge || "初期値";
+  return hoge;
+}</pre>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_Operators" title="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Logical_Operators">参考サイト</a></p>
+<p>↓こうやってできればいいのに〜</p>
+<pre>function hoge(hoge="初期値") { 
+  return hoge;
+}</pre>
+<p>追記 1/28 11:45</p>
+<blockquote class="twitter-tweet" data-conversation="none" lang="ja"><p><a href="https://twitter.com/xsota">@xsota</a> あれだと明示的に null を与えることができない。</p>
+<p>&mdash; HIROSE Yuuji/広瀬雄二 (@hiroseyuuji) <a href="https://twitter.com/hiroseyuuji/status/560266471691935744">2015, 1月 28</a></p></blockquote>
+<p><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>じゃあこれでいこう</p>
+<pre>hoge = hoge || "初期値";</pre>
+<p>を↓に変更</p>
+<pre>if (hoge === undefined) {
+ hoge = "初期値";
+}
+</pre>

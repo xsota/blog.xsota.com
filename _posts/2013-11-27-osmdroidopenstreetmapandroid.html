@@ -1,0 +1,53 @@
+---
+layout: post
+title: osmdroidを利用してOpenStreetMapの地図を表示させる方法【Android開発】
+date: 2013-11-27 19:20:00.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+- 開発
+tags:
+- Android
+- Open Street Map
+- osmdroid
+- 地図
+meta:
+  blogger_blog: konohappa.blogspot.com
+  blogger_author: Sota X
+  blogger_permalink: "/2013/11/osmdroidopenstreetmapandroid.html"
+  blogger_internal: "/feeds/2514941205024880232/posts/default/2698525675460969213"
+  _thumbnail_id: '129'
+  _edit_last: '1'
+  _wp_old_slug: osmdroid%e3%82%92%e5%88%a9%e7%94%a8%e3%81%97%e3%81%a6openstreetmap%e3%81%ae%e5%9c%b0%e5%9b%b3%e3%82%92%e8%a1%a8%e7%a4%ba%e3%81%95%e3%81%9b%e3%82%8b%e6%96%b9%e6%b3%95%e3%80%90android%e9%96%8b%e7%99%ba
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<p>Androidの開発 環境が揃っている前提で書きます。<br />エディタはEclipseを使ってます。</p>
+<h2><span style="font-weight: normal;">osmdroidライブラリのimport</span></h2>
+<p>osmdroidを利用するにはosmdroidとSLF4Jというライブラリが必要です。</p>
+<p>まず以下のURLからosmdroiライブラリを入手します。<br /><a href="http://code.google.com/p/osmdroid/downloads/list?can=1&amp;q=&amp;colspec=Filename+Summary+Uploaded+ReleaseDate+Size+DownloadCount" target="_blank">http://code.google.com/p/osmdroid/downloads/list?can=1&amp;q=&amp;colspec=Filename+Summary+Uploaded+ReleaseDate+Size+DownloadCount</a></p>
+<p><span style="font-weight: normal;">SLF4Jはこっち</span><br /><span style="font-weight: normal;"><a href="http://www.slf4j.org/android/" target="_blank">http://www.slf4j.org/android/</a>&nbsp;</span></p>
+<p><span style="font-weight: normal;">両方ダウンロードしたら libs ディレクトリに突っ込みます。</span><br /><a href="https://blog.xsota.com/wp-content/uploads/2013/11/osm2.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="179" src="{{ site.baseurl }}/assets/osm2.png" width="320" /></a><br /><span style="font-weight: normal;"><br /></span> </p>
+<h2><b><span style="font-weight: normal;">コードを書きます</span></b></h2>
+<p><b><span style="font-weight: normal;"> </span></b><br /><b><span style="font-weight: normal;">まず新規作成します<b>。</b></span></b></p>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/11/osm1.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="318" src="{{ site.baseurl }}/assets/osm1.png" width="320" />&nbsp;</a></div>
+<div style="clear: both; text-align: left;"></div>
+<div style="clear: both; text-align: left;"></div>
+<div style="clear: both; text-align: left;"><span style="font-weight: normal;">MapActivity.java</span> </div>
+<pre><textarea cols="70" readonly="" rows="50">package com.xsota.opern_street_map;</textarea><br /><br />import org.osmdroid.tileprovider.tilesource.TileSourceFactory;<br />import org.osmdroid.views.MapController;<br />import org.osmdroid.views.MapView;<br /><br />import android.os.Bundle;<br />import android.app.Activity;<br />import android.widget.RelativeLayout;<br /><br />public class MapActivity extends Activity {<br /><br /> @Override<br /> protected void onCreate(Bundle savedInstanceState) {<br />  super.onCreate(savedInstanceState);<br />  <br />  //レイアウト<br />  final RelativeLayout relativeLayout = new RelativeLayout(this);<br />  final RelativeLayout.LayoutParams mapViewLayoutParams = new RelativeLayout.LayoutParams(          <br />    RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);<br />    <br />     //mapView生成<br />     MapView mapView;<br />     mapView = new MapView(this, 256);     <br />     <br />     //マルチタッチ可能にするぞ<br />     mapView.setMultiTouchControls(true);<br />     <br />     //タイルソースをMAPNIKに決めるぞ<br />     mapView.setTileSource(TileSourceFactory.MAPNIK); <br />     <br />     //インターネットに接続してソースからタイルをダウンロードするぞよ<br />     mapView.setUseDataConnection(true);<br />     <br />     //マップコントローラを生成するぞ<br />     MapController mapController;<br />     mapController = mapView.getController();     <br />     <br />     //ズームレベルを4にするぞ<br />     mapController.setZoom(4);<br />       <br />     //addviewして画面にだすぞよ<br />     relativeLayout.addView(mapView, mapViewLayoutParams);<br />  setContentView(relativeLayout);<br /> }<br />}<br /></pre>
+<p>必要なPermissions </p>
+<pre><textarea cols="70" readonly="" rows="5"><uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /></textarea><br /><br /><uses-permission android:name="android.permission.INTERNET" /><br /><br /><uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /><br /><br /><uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <br /></pre>
+<p>するとこんな感じになります</p>
+<div style="clear: both; text-align: center;"></div>
+<div style="clear: both; text-align: center;"><a href="https://blog.xsota.com/wp-content/uploads/2013/11/osmmap.png" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="200" src="{{ site.baseurl }}/assets/osmmap.png" width="320" /></a></div>
+<p><a href="http://code.google.com/p/osmdroid/wiki/HowToIncludeInYourProject" target="_blank">参考ページ</a></p>
+<p>おしまい。</p>

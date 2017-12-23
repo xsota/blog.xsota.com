@@ -1,0 +1,87 @@
+---
+layout: post
+title: 自前scrollableView的な何か
+date: 2015-04-14 21:10:11.000000000 +09:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- 日記
+- 開発
+tags:
+- Alloy
+- scrollableView
+- Titanium Mobile
+meta:
+  _edit_last: '1'
+  _aioseop_opengraph_settings: a:12:{s:32:"aioseop_opengraph_settings_title";s:0:"";s:31:"aioseop_opengraph_settings_desc";s:0:"";s:36:"aioseop_opengraph_settings_customimg";s:0:"";s:37:"aioseop_opengraph_settings_imagewidth";s:0:"";s:38:"aioseop_opengraph_settings_imageheight";s:0:"";s:32:"aioseop_opengraph_settings_video";s:0:"";s:37:"aioseop_opengraph_settings_videowidth";s:0:"";s:38:"aioseop_opengraph_settings_videoheight";s:0:"";s:35:"aioseop_opengraph_settings_category";s:7:"article";s:34:"aioseop_opengraph_settings_section";s:0:"";s:30:"aioseop_opengraph_settings_tag";s:0:"";s:34:"aioseop_opengraph_settings_setcard";s:19:"summary_large_image";}
+  _layout: inherit
+  _sd_is_markdown: '1'
+author:
+  login: xsota
+  email: info@xsota.com
+  display_name: xsota
+  first_name: ''
+  last_name: ''
+---
+<blockquote class="twitter-tweet" lang="ja">ゆる募 ScrollableViewのスクロール移動量(もしくはxの位置)を取得する方法 <a href="https://twitter.com/hashtag/titaniumjp?src=hash">#titaniumjp</a> 今こんな感じ <a href="https://t.co/bqOBRi1IZE">https://t.co/bqOBRi1IZE</a></p>
+<p>— そたマン (@xsota) <a href="https://twitter.com/xsota/status/587934719750250498">2015, 4月 14</a></p></blockquote>
+<p><script src="//platform.twitter.com/widgets.js" async="" charset="utf-8"></script></p>
+<p>&nbsp;</p>
+<p>結局自前でscrollableview的な何かをつくった。</p>
+<p>おしまい。</p>
+<p>&nbsp;</p>
+<pre>
+var win = Ti.UI.createWindow();
+
+var width = Ti.Platform.displayCaps.platformWidth;
+
+var view1 = Ti.UI.createView({
+  backgroundColor : 'red',
+  width : width,
+  height : "100%"
+});
+
+var view2 = Ti.UI.createView({
+  backgroundColor : 'green',
+  width : width,
+  height : "100%"
+});
+
+var view3 = Ti.UI.createView({
+  backgroundColor : 'blue',
+  width : width,
+  height : "100%"
+});
+
+var scrollView = Ti.UI.createScrollView({
+  layout : "horizontal"
+});
+
+scrollView.add(view1);
+scrollView.add(view2);
+scrollView.add(view3);
+
+var pageSize = width;
+
+scrollView.addEventListener('scroll', function (e) {
+  myScrollable(e);
+});
+
+function myScrollable (e) {
+  Ti.API.info('x',e.x);
+  
+  var currentPage = parseInt((e.x + pageSize / 2) / pageSize);
+
+  if (e.decelerating) {
+    e.source.scrollTo((currentPage * pageSize), 0);
+  }
+}
+
+win.add(scrollView);
+win.open();
+
+
+</pre>
