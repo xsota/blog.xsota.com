@@ -44,32 +44,32 @@ author:
 <p>Android Studioの左上の<br />
 File &gt; New &gt; New Project<br />
 でプロジェクトの新規作成するよ。</p>
-<p><img class="alignnone size-large wp-image-540" src="{{ site.baseurl }}/assets/a57e9136c6db0ce1bf5d0f6420a5f2bf-787x1024.png" alt="スクリーンショット 2016-02-14 19.03.44" width="720" height="937" /></p>
+<p><img class="alignnone size-large wp-image-540" src="{{ site.baseurl }}/assets/img/a57e9136c6db0ce1bf5d0f6420a5f2bf-787x1024.png" alt="スクリーンショット 2016-02-14 19.03.44" width="720" height="937" /></p>
 <p>なんかてきとうにアプリの名前をつけるよ。<br />
-<img class="alignnone size-large wp-image-541" src="{{ site.baseurl }}/assets/4c392fa6ccebdd7928f6c63e15fc9956-1024x656.png" alt="スクリーンショット 2016-02-14 18.53.35" width="720" height="461" /></p>
+<img class="alignnone size-large wp-image-541" src="{{ site.baseurl }}/assets/img/4c392fa6ccebdd7928f6c63e15fc9956-1024x656.png" alt="スクリーンショット 2016-02-14 18.53.35" width="720" height="461" /></p>
 <p>ターゲットのAndroid ばーじょんを決めるよ。<br />
 今回は4.1にしたよ。88%くらい居るらしいよ。残りの12%の人は使えないアプリになっちゃうね。<br />
-<img class="alignnone size-large wp-image-542" src="{{ site.baseurl }}/assets/586fc46d4242c2b5dc7278a638285570-1024x654.png" alt="スクリーンショット 2016-02-14 18.54.06" width="720" height="460" /></p>
+<img class="alignnone size-large wp-image-542" src="{{ site.baseurl }}/assets/img/586fc46d4242c2b5dc7278a638285570-1024x654.png" alt="スクリーンショット 2016-02-14 18.54.06" width="720" height="460" /></p>
 <p>次はActivityを決めるよう。<br />
 Blank Activityでいいよ。<br />
-<img class="alignnone size-large wp-image-543" src="{{ site.baseurl }}/assets/d298c05d6208b6b00f28803fd8a250f5-1024x661.png" alt="スクリーンショット 2016-02-14 18.54.16" width="720" height="465" /></p>
+<img class="alignnone size-large wp-image-543" src="{{ site.baseurl }}/assets/img/d298c05d6208b6b00f28803fd8a250f5-1024x661.png" alt="スクリーンショット 2016-02-14 18.54.16" width="720" height="465" /></p>
 <p>Activity名をてきとうに決めるよ。<br />
 デフォルトでいいよ。<br />
-<img class="alignnone size-large wp-image-544" src="{{ site.baseurl }}/assets/e7da0d05554a7b070f5e92939b9a7983-1024x659.png" alt="スクリーンショット 2016-02-14 18.54.49" width="720" height="463" /></p>
+<img class="alignnone size-large wp-image-544" src="{{ site.baseurl }}/assets/img/e7da0d05554a7b070f5e92939b9a7983-1024x659.png" alt="スクリーンショット 2016-02-14 18.54.49" width="720" height="463" /></p>
 <p>とりあえずここまでくればプロジェクトの新規作成は完了だと思うよ。<br />
 このまま実行するとHello Worldって書かれた白い画面が出るよ。</p>
 <h2>じゃんけんの画面作成</h2>
 <p>じゃんけんの手の画像をdrawableに保存したよ。</p>
-<p><img class="alignnone size-full wp-image-547" src="{{ site.baseurl }}/assets/98fc06e56374db5425a127aa93478ee9.png" alt="スクリーンショット 2016-02-14 19.35.13" width="422" height="424" /></p>
+<p><img class="alignnone size-full wp-image-547" src="{{ site.baseurl }}/assets/img/98fc06e56374db5425a127aa93478ee9.png" alt="スクリーンショット 2016-02-14 19.35.13" width="422" height="424" /></p>
 <p>こんなかんじに編集したよ。<br />
-<img class="alignnone size-large wp-image-548" src="{{ site.baseurl }}/assets/c2c4ee139c95b97074297a0f30a00655-562x1024.png" alt="スクリーンショット 2016-02-14 19.35.58" width="562" height="1024" /></p>
+<img class="alignnone size-large wp-image-548" src="{{ site.baseurl }}/assets/img/c2c4ee139c95b97074297a0f30a00655-562x1024.png" alt="スクリーンショット 2016-02-14 19.35.58" width="562" height="1024" /></p>
 <p><script src="http://gist-it.appspot.com/github/xsota/Janken2/blob/master/app/src/main/res/layout/activity_main.xml"></script></p>
 <h2>ButterKnifeを使う</h2>
 <p><a href="http://jakewharton.github.io/butterknife/" target="_blank">ButterKnife</a>を使うために app/build.gradleに追記するよ。</p>
 <p>dependenciesの中に<br />
 compile 'com.jakewharton:butterknife:7.0.1'<br />
 を書こうね。<br />
-<img src="{{ site.baseurl }}/assets/60b7b4a75c26c35466658bc991738f09.png" alt="スクリーンショット 2016-02-14 19.44.13" width="796" height="196" class="alignnone size-full wp-image-551" /></p>
+<img src="{{ site.baseurl }}/assets/img/60b7b4a75c26c35466658bc991738f09.png" alt="スクリーンショット 2016-02-14 19.44.13" width="796" height="196" class="alignnone size-full wp-image-551" /></p>
 <p>書いたら右上にSync Nowとかなんとか書いてあるからクリックして同期してね。</p>
 <h2>じゃんけんの部分のプログラムを書く</h2>
 <p>やっとコードがかけるよ！よかったね。<br />
@@ -77,7 +77,7 @@ compile 'com.jakewharton:butterknife:7.0.1'<br />
 <script src="http://gist-it.appspot.com/github/xsota/Janken2/blob/master/app/src/main/java/com/xsota/janken2/janken2/MainActivity.java"></script></p>
 <h2>こんなかんじに動く</h2>
 <p>ちょきをタップしたときの画像だ。<br />
-<img src="{{ site.baseurl }}/assets/device-2016-02-14-202248-576x1024.png" alt="device-2016-02-14-202248" width="576" height="1024" class="alignnone size-large wp-image-556" /></p>
+<img src="{{ site.baseurl }}/assets/img/device-2016-02-14-202248-576x1024.png" alt="device-2016-02-14-202248" width="576" height="1024" class="alignnone size-large wp-image-556" /></p>
 <h2>さいご</h2>
 <p>このじゃんけんアプリはGitHubに上げておいたよ<br />
 <a href="https://github.com/xsota/Janken2" target="_blank">https://github.com/xsota/Janken2</a></p>
