@@ -4,10 +4,17 @@ title: xsotaのブログ
 ---
 <!-- This loops through the paginated posts -->
 {% for post in paginator.posts %}
-<h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-<p class="author">
-    <span class="date">{{ post.date }}</span>
-</p>
+<div class="mdc-card">
+    <a href="{{ post.url }}">
+        <section class="mdc-card__media card__16-9-media">
+            <h1 class="mdc-card__title mdc-card__title--large">{{ post.title }}</h1>
+        </section>
+
+        <section class="mdc-card__supporting-text">
+            {{ post.date }}
+        </section>
+    </a>
+</div>
 {% endfor %}
 
 <!-- Pagination links -->
