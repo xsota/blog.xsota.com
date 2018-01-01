@@ -1,12 +1,36 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <title>xsotaのブログ</title>
-</head>
-<body>
-{{ content }}
-</body>
-</html>
+---
+layout: default
+---
+<section>
+    {{ content }}
+</section>
+
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+<article class="mdc-card">
+    <a href="{{ post.url }}">
+        <section class="mdc-card__media card__16-9-media">
+            <h1 class="mdc-card__title mdc-card__title--large">{{ post.title }}</h1>
+        </section>
+
+        <section class="mdc-card__supporting-text">
+            {{ post.date }}
+        </section>
+    </a>
+</article>
+{% endfor %}
+
+<!-- Pagination links -->
+<section class="pagination">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+    {% else %}
+    <span class="previous">Previous</span>
+    {% endif %}
+    <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+    {% else %}
+    <span class="next ">Next</span>
+    {% endif %}
+</section>

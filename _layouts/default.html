@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <title>{{ page.title }}</title>
-</head>
+{% include head.html %}
 <body>
-<h1>{{ page.title }}</h1>
 {{ content }}
+<script src="https://unpkg.com/material-components-web@0.27.0/dist/material-components-web.min.js"></script>
 </body>
 </html>
