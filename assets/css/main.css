@@ -15,3 +15,8 @@
 :root {
     --mdc-theme-primary: #04821c;
 }
+
+img {
+    max-width: 100%;
+    object-fit: contain;
+}
