@@ -11,3 +11,7 @@
 }
 
 .wf-sawarabigothic { font-family: "Sawarabi Gothic"; }
+
+:root {
+    --mdc-theme-primary: #04821c;
+}
