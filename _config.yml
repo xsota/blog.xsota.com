@@ -25,7 +25,7 @@ github_username:  xsota
 google_analytics: UA-35716150-2
 # Build settings
 markdown: kramdown
-paginate: 10
+paginate: 9
 plugins:
   - jekyll-feed
   - jekyll-paginate
