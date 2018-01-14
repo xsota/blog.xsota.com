@@ -16,14 +16,6 @@
     --mdc-theme-primary: #04821c;
 }
 
-.mdc-toolbar-fixed-adjust {
-    margin-top: 88px;
-}
-
-.mdc-card {
-    margin: 24px;
-}
-
 .mdc-card__media {
     padding: 0;
 }
