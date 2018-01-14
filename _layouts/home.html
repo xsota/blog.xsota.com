@@ -7,14 +7,17 @@ layout: default
 
 <!-- This loops through the paginated posts -->
 {% for post in paginator.posts %}
-<article>
-    <a href="{{ post.url }}">
-        <section class="mdc-card__media card__16-9-media">
-            <h1 class="mdc-card__title mdc-card__title--large wf-sawarabigothic">{{ post.title }}</h1>
+<article class="mdc-card ">
+    <a href="{{ post.url }}" class="">
+        {% if post.image %}
+        <section class="mdc-card__media">
+            <img class="card-posts__item" src="{{ site.baseurl }}{{ post.image }}"/>
         </section>
+        {% endif %}
 
         <section class="mdc-card__supporting-text wf-sawarabigothic">
-            {{ post.date }}
+            <h1 class="mdc-card__title mdc-card__title--large">{{ post.title }}</h1>
+            <h2 class="mdc-card__subtitle"> {{ post.date }} </h2>
         </section>
     </a>
 </article>
