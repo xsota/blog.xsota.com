@@ -10,20 +10,22 @@ layout: default
     <div class="mdc-layout-grid__inner">
 
         {% for post in paginator.posts %}
-        <article class="mdc-card mdc-layout-grid__cell--span-4">
-            <a href="{{ post.url }}" class="">
-                {% if post.image %}
-                <section class="mdc-card__media">
-                    <img class="card-posts__item" src="{{ site.baseurl }}{{ post.image }}"/>
-                </section>
-                {% endif %}
+        <div class="mdc-layout-grid__cell--span-4">
+            <article class="mdc-card">
+                <a href="{{ post.url }}" class="">
+                    {% if post.image %}
+                    <section class="mdc-card__media">
+                        <img class="card-posts__item" src="{{ site.baseurl }}{{ post.image }}"/>
+                    </section>
+                    {% endif %}
 
-                <section class="mdc-card__supporting-text wf-sawarabigothic">
-                    <h1 class="mdc-card__title mdc-card__title--large">{{ post.title }}</h1>
-                    <h2 class="mdc-card__subtitle"> {{ post.date }} </h2>
-                </section>
-            </a>
-        </article>
+                    <section class="mdc-card__supporting-text wf-sawarabigothic">
+                        <h1 class="mdc-card__title mdc-card__title--large">{{ post.title }}</h1>
+                        <h2 class="mdc-card__subtitle"> {{ post.date }} </h2>
+                    </section>
+                </a>
+            </article>
+        </div>
         {% endfor %}
     </div>
 </div>
