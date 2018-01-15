@@ -8,4 +8,17 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
     <link rel="icon" href="{{ site.baseurl }}/assets/favicon.ico">
     <title>{% if page.title %}{{page.title}} | {{site.title}}{% else %}{{site.title}}{% endif %}</title>
+
+    {% if page.image%}
+    <style>
+        .mdc-toolbar--with_image::after {
+            background: url("{{ site.baseurl }}{{ page.image }}") center;
+            background-size: cover;
+        }
+        .mdc-toolbar--flexible-default-behavior.mdc-toolbar--flexible-space-minimized .mdc-toolbar__row:first-child::after {
+            opacity: 0.5;
+            filter: blur(1px);
+        }
+    </style>
+    {% endif %}
 </head>

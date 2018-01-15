@@ -1,5 +1,5 @@
-<header class="mdc-toolbar mdc-toolbar--fixed">
-    <div class="mdc-toolbar__row">
+<header class="mdc-toolbar mdc-toolbar--fixed {% if page.image%} mdc-toolbar--waterfall mdc-toolbar--flexible mdc-toolbar--flexible-default-behavior{% endif %}">
+    <div class="mdc-toolbar__row mdc-toolbar--with_image">
         <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
             <span>
                 <a href="{{ site.baseurl }}/" class="mdc-toolbar__menu-icon">
