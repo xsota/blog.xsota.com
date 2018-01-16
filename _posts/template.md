@@ -1,9 +1,14 @@
 ---
 layout: post
-title:  ""
-date:   2012-09-12 00:00:00 +0900
+title: 
+description: 
+date: 2018-00-00 12:00:00 +09:00
+type: post
 permalink: /:year/:month/:title.html
-categories: 
+categories:
+- 日記
+- 日記じゃない
 tags:
-  - iMovie
+- タグ書くのってけっこう忘れる
+image: /assets/img/
 ---
