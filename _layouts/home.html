@@ -20,9 +20,9 @@ layout: default
                         </section>
                         {% endif %}
 
-                        <section class="mdc-card__supporting-text wf-sawarabigothic">
-                            <h1 class="mdc-card__title mdc-card__title--large">{{ post.title }}</h1>
-                            <h2 class="mdc-card__subtitle"> {{ post.date }} </h2>
+                        <section class="mdc-card__supporting-text">
+                            <h1 class="mdc-card__title mdc-card__title--large wf-sawarabimincho">{{ post.title }}</h1>
+                            <h2 class="mdc-card__subtitle wf-sawarabimincho"> {{ post.date }} </h2>
                         </section>
                     </a>
                 </article>
@@ -34,13 +34,13 @@ layout: default
     <!-- Pagination links -->
     <section class="pagination">
         {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+        <a href="{{ paginator.previous_page_path }}" class="mdc-button mdc-button--raised previous">Previous</a>
         {% else %}
         <span class="previous">Previous</span>
         {% endif %}
         <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
         {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+        <a href="{{ paginator.next_page_path }}" class="mdc-button mdc-button--raised next">Next</a>
         {% else %}
         <span class="next ">Next</span>
         {% endif %}
