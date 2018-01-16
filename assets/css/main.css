@@ -16,8 +16,14 @@
     --mdc-theme-primary: #04821c;
 }
 
-main {
+#post {
     max-width: 740px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#home {
+    max-width: 960px;
     margin-right: auto;
     margin-left: auto;
 }
