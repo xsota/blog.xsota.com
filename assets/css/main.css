@@ -33,6 +33,7 @@
 
 :root {
     --mdc-theme-primary: #04821c;
+    --mdc-theme-text-primary-on-light: #333;
 }
 
 #post {
@@ -60,4 +61,8 @@
 img {
     max-width: 100%;
     object-fit: contain;
+}
+
+body {
+    color: #333;
 }
