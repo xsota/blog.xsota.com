@@ -1,19 +1,51 @@
+/*
+ * Sawarabi Mincho (Japanese) https://fonts.google.com/earlyaccess
+ */
 @font-face {
-    font-family: 'Sawarabi Gothic';
+    font-family: 'Sawarabi Mincho';
     font-style: normal;
     font-weight: 400;
-    src: url(//fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.eot);
-    src: url(//fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.eot?#iefix) format('embedded-opentype'),
-    url(//fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.woff2) format('woff2'),
-    url(//fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.woff) format('woff'),
-    url(//fonts.gstatic.com/ea/sawarabigothic/v1/SawarabiGothic-Regular.ttf) format('truetype');
+    src: url(//fonts.gstatic.com/ea/sawarabimincho/v1/SawarabiMincho-Regular.eot);
+    src: url(//fonts.gstatic.com/ea/sawarabimincho/v1/SawarabiMincho-Regular.eot?#iefix) format('embedded-opentype'),
+    url(//fonts.gstatic.com/ea/sawarabimincho/v1/SawarabiMincho-Regular.woff2) format('woff2'),
+    url(//fonts.gstatic.com/ea/sawarabimincho/v1/SawarabiMincho-Regular.woff) format('woff'),
+    url(//fonts.gstatic.com/ea/sawarabimincho/v1/SawarabiMincho-Regular.ttf) format('truetype');
     font-display: swap;
 }
 
-.wf-sawarabigothic { font-family: "Sawarabi Gothic"; }
+/*
+ * Kokoro (Japanese) https://fonts.google.com/earlyaccess
+ */
+@font-face {
+    font-family: 'Kokoro';
+    font-style: normal;
+    font-weight: 400;
+    src: url(//fonts.gstatic.com/ea/kokoro/v1/Kokoro-Regular.eot);
+    src: url(//fonts.gstatic.com/ea/kokoro/v1/Kokoro-Regular.eot?#iefix) format('embedded-opentype'),
+    url(//fonts.gstatic.com/ea/kokoro/v1/Kokoro-Regular.woff2) format('woff2'),
+    url(//fonts.gstatic.com/ea/kokoro/v1/Kokoro-Regular.woff) format('woff'),
+    url(//fonts.gstatic.com/ea/kokoro/v1/Kokoro-Regular.ttf) format('truetype');
+    font-display: swap;
+}
+
+.wf-sawarabimincho { font-family: "Sawarabi Mincho" !important; }
+.wf-kokoro { font-family: "Kokoro" !important;}
 
 :root {
     --mdc-theme-primary: #04821c;
+    --mdc-theme-text-primary-on-light: #333;
+}
+
+#post {
+    max-width: 740px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#home {
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .mdc-card__media {
@@ -33,4 +65,8 @@ img {
 
 a {
     text-decoration: none;
+}
+
+body {
+    color: #333;
 }
