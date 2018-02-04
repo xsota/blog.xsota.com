@@ -63,7 +63,7 @@ img {
     object-fit: contain;
 }
 
-a {
+.mdc-card > a {
     text-decoration: none;
 }
 
